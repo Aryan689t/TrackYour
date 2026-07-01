@@ -1,4 +1,5 @@
  import {Link} from "react-router-dom";
+ import Semester from "./Semester.jsx";
  function Academics(){
 
     return(
@@ -9,6 +10,7 @@
     </Link>
 
     <h2>academics</h2>
+    <Link to="/Semester"><button>add new sem</button></Link>
     </>
     )
 }

@@ -6,7 +6,7 @@ import Academics from "./academics.jsx"
 import Projects from "./projects.jsx"
 import DSA from "./DSA.jsx"
 import Network from "./network.jsx"
-
+import Semester from './Semester.jsx'
 import { createBrowserRouter,RouterProvider} from 'react-router-dom';
 
 const router = createBrowserRouter([
@@ -20,9 +20,8 @@ const router = createBrowserRouter([
     element:<DSA/>},
     {path:"/network",
     element:<Network/>},
-  
-  
-  
+  {path:"/Semester",
+    element:<Semester/>},
 ]);
 
 createRoot(document.getElementById('root')).render(
