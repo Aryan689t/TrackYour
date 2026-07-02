@@ -90,7 +90,7 @@ function Semester(){
     }
 
     return(
-    <>
+    <div className="semester-page">
 
     <div className="semnum">
         <h2>Semester {id}</h2>
@@ -171,7 +171,7 @@ function Semester(){
 
    <p className="sgpa">SGPA : {calSgpa().toFixed(2)}</p>
  
-    </>
+    </div>
     )
 }
 export default Semester
