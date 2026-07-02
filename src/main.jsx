@@ -20,7 +20,7 @@ const router = createBrowserRouter([
     element:<DSA/>},
     {path:"/network",
     element:<Network/>},
-  {path:"/Semester",
+  {path:"/Semester/:id",
     element:<Semester/>},
 ]);
 
