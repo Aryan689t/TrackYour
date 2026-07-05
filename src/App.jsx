@@ -6,6 +6,7 @@ import Network from "./network.jsx";*/
 
 import {Link} from "react-router-dom";
 
+
 function App() {
   
 
@@ -17,7 +18,7 @@ function App() {
     <Link to="/academics">
          <button>Academics</button>
     </Link>
-     <Link to="/DSA">
+     <Link to="/Status">
          <button>DSA</button>
     </Link>
      <Link to="/projects">

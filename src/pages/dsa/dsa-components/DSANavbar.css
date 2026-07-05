@@ -1,0 +1,53 @@
+.dsaDashboard{
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 240px;
+    height: 100vh;
+
+    background: #161b22;
+    border-right: 1px solid #30363d;
+
+    padding-top: 35px;
+}
+
+.dsaDashboard a{
+    display: block;
+    text-decoration: none;
+    color: #c9d1d9;
+}
+
+.status,
+.history,
+.playlists,
+.roadmap,
+.journal{
+
+    padding: 18px 30px;
+
+    font-size: 18px;
+
+    transition: 0.25s;
+
+}
+
+.status:hover,
+.history:hover,
+.playlists:hover,
+.roadmap:hover,
+.journal:hover{
+
+    background:#21262d;
+
+}
+
+.status p,
+.history p,
+.playlists p,
+.roadmap p,
+.journal p{
+
+    margin:0;
+
+}
