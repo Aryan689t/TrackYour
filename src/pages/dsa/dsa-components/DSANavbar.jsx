@@ -7,13 +7,15 @@ import "./DSANavbar.css";
     <>
 
     <div className="dsaDashboard">
-    <div>
-       <Link to="/Status"><div className="status"><p>Status</p></div></Link> 
-        <Link to="/History"><div className="history"><p>History</p></div></Link>
-        <Link to="/Playlists"><div className="playlists"><p>playlists</p></div></Link>
-        <Link to="/Roadmap"><div className="roadmap"><p>Roadmap</p></div></Link>
-        <Link to="/Journal"><div className="journal"><p>Journal</p></div></Link>
+        <h2>DSA Tracker</h2>
+    <div className="navLink">
+       <Link to="/Status"><div className="dsanavitem"><p>Status</p></div></Link> 
+        <Link to="/History"><div className="dsanavitem"><p>History</p></div></Link>
+        <Link to="/Playlists"><div className="dsanavitem"><p>playlists</p></div></Link>
+        <Link to="/Roadmap"><div className="dsanavitem"><p>Roadmap</p></div></Link>
+        <Link to="/Journal"><div className="dsanavitem"><p>Journal</p></div></Link>
     </div>
+
     </div>
     </>
     )

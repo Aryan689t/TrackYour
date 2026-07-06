@@ -1,0 +1,29 @@
+.heatmap{
+    margin-top:40px;
+}
+
+.heatmap h2{
+    margin-bottom:20px;
+}
+
+.heatmapGrid{
+
+    display:grid;
+
+    grid-template-columns:repeat(30,16px);
+
+    gap:6px;
+
+}
+
+.heatCell{
+
+    width:16px;
+
+    height:16px;
+
+    background:#2d333b;
+
+    border-radius:3px;
+
+}

@@ -1,53 +1,70 @@
 .dsaDashboard{
-    position: fixed;
-    top: 0;
-    left: 0;
+    width:260px;
+    height:100vh;
 
-    width: 240px;
-    height: 100vh;
+    position:fixed;
+    top:0;
+    left:0;
 
-    background: #161b22;
-    border-right: 1px solid #30363d;
+    background:#111827;
+    border-right:1px solid #1f2937;
 
-    padding-top: 35px;
+    padding:30px 20px;
+    box-sizing:border-box;
+
+    display:flex;
+    flex-direction:column;
 }
 
-.dsaDashboard a{
-    display: block;
-    text-decoration: none;
-    color: #c9d1d9;
+.dsaDashboard h2{
+    color:#22c55e;
+    font-size:28px;
+    font-weight:700;
+    letter-spacing:.5px;
+    margin-bottom:40px;
 }
 
-.status,
-.history,
-.playlists,
-.roadmap,
-.journal{
-
-    padding: 18px 30px;
-
-    font-size: 18px;
-
-    transition: 0.25s;
-
+.navLink{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
 }
 
-.status:hover,
-.history:hover,
-.playlists:hover,
-.roadmap:hover,
-.journal:hover{
-
-    background:#21262d;
-
+.navLink a{
+    text-decoration:none;
 }
 
-.status p,
-.history p,
-.playlists p,
-.roadmap p,
-.journal p{
+.dsanavitem{
+    color:#d1d5db;
 
+    padding:16px 18px;
+
+    border-radius:12px;
+
+    border-left:4px solid transparent;
+
+    transition:all .25s ease;
+
+    cursor:pointer;
+}
+
+.dsanavitem p{
     margin:0;
+    font-size:16px;
+    font-weight:500;
+}
 
+.dsanavitem:hover{
+    background:#1f2937;
+    color:#4ade80;
+    border-left:4px solid #22c55e;
+    transform:translateX(6px);
+}
+
+.dsanavitem:hover p{
+    color:#4ade80;
+}
+
+.dsanavitem:active{
+    transform:translateX(3px);
 }
