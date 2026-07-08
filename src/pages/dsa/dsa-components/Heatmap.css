@@ -1,29 +1,85 @@
-.heatmap{
-    margin-top:40px;
+.heatmapCard{
+
+    background:#161b22;
+    border:1px solid #2d333b;
+    border-radius:18px;
+    padding:24px;
+    margin-top:28px;
+
 }
 
-.heatmap h2{
-    margin-bottom:20px;
+.heatmapHeader{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:24px;
+
 }
 
+.heatmapHeader h2{
+
+    color:#f0f6fc;
+    font-size:22px;
+    font-weight:600;
+
+}
+
+.heatmapHeader button{
+
+    background:#21262d;
+    color:#c9d1d9;
+    border:none;
+    padding:8px 14px;
+    border-radius:8px;
+    cursor:pointer;
+
+}
 .heatmapGrid{
-
     display:grid;
-
     grid-template-columns:repeat(30,16px);
-
     gap:6px;
+}
+.heatCell{
+    width:16px;
+    height:16px;
+    background:#2d333b;
+    border-radius:3px;
 
 }
+.level1{
 
-.heatCell{
+    background:#0e4429;
 
-    width:16px;
+}
+.level2{
 
-    height:16px;
+    background:#006d32;
 
-    background:#2d333b;
+}
+.level3{
 
-    border-radius:3px;
+    background:#26a641;
+
+}
+.level4{
+
+    background:#39d353;
+
+}
+.heatmapFooter{
+
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-top:24px;
+    color:#8b949e;
+    font-size:14px;
+
+}
+.legend{
+
+    display:flex;
+    gap:4px;
 
 }

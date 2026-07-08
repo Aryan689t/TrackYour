@@ -1,0 +1,17 @@
+.problemList{
+
+    background:#161b22;
+    border:1px solid #2d333b;
+    border-radius:18px;
+    padding:22px;
+
+}
+
+.problemList h2{
+
+    color:#f0f6fc;
+    font-size:22px;
+    font-weight:600;
+    margin-bottom:18px;
+
+}

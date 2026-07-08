@@ -1,14 +1,41 @@
-import './statsCard.css';
-function Statscard({icon,title,value,subtitle}){
-    return(
-        <>
+import "./StatsCard.css";
+
+function StatCard({ icon, title, value, subtitle, description, color }) {
+
+    return (
+
         <div className="statCard">
-            <div className="cardIcon">{icon}</div>
-            <h3>{title}</h3>
-            <h2>{value}</h2>
-            <p>{subtitle}</p>
+
+            <div className="statTop">
+
+                <div className={`cardIcon ${color}`}>
+                    {icon}
+                </div>
+
+                <div className="statHeading">
+                    <h3>{title}</h3>
+                </div>
+
+            </div>
+
+            <div className="statValue">
+
+                {value}
+
+                <span>{subtitle}</span>
+
+            </div>
+
+            <p className="statDescription">
+
+                {description}
+
+            </p>
+
         </div>
-        </>
+
     );
+
 }
-export default Statscard;
+
+export default StatCard;

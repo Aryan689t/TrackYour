@@ -1,55 +1,62 @@
-import Statscard from "./Statscard.jsx";
-import './statsGrid.css';
+import StatCard from "./StatsCard.jsx";
+import './StatsGrid.css';
 
 function StatsGrid(){
 
-    return(
+    return(<div className="statsGrid">
+    <StatCard
+    icon="🔥"
+    title="Current Streak"
+    value="37"
+    subtitle=" days"
+    description="Keep it up!"
+    color="green"
+/>
 
-        <div className="statsGrid">
+<StatCard
+    icon="🏆"
+    title="Longest Streak"
+    value="103"
+    subtitle=" days"
+    description="Personal Best"
+    color="purple"
+/>
 
-            <Statscard
-                icon="🔥"
-                title="Current Streak"
-                value="37"
-                subtitle="Days"
-            />
+<StatCard
+    icon="📚"
+    title="Solved"
+    value="281"
+    subtitle=" problems"
+    description="Across all topics"
+    color="blue"
+/>
 
-            <Statscard
-                icon="🏆"
-                title="Longest Streak"
-                value="103"
-                subtitle="Days"
-            />
+<StatCard
+    icon="🟢"
+    title="Easy"
+    value="120"
+    subtitle=""
+    description="Solved"
+    color="lightgreen"
+/>
 
-            <Statscard
-                icon="📚"
-                title="Solved"
-                value="281"
-                subtitle="Problems"
-            />
+<StatCard
+    icon="🟡"
+    title="Medium"
+    value="130"
+    subtitle=""
+    description="Solved"
+    color="orange"
+/>
 
-            <Statscard
-                icon="🟢"
-                title="Easy"
-                value="120"
-                subtitle="Solved"
-            />
-
-            <Statscard
-                icon="🟡"
-                title="Medium"
-                value="130"
-                subtitle="Solved"
-            />
-
-            <Statscard
-                icon="🔴"
-                title="Hard"
-                value="31"
-                subtitle="Solved"
-            />
-
-        </div>
+<StatCard
+    icon="🔴"
+    title="Hard"
+    value="31"
+    subtitle=""
+    description="Solved"
+    color="red"
+/></div>
 
     )
 

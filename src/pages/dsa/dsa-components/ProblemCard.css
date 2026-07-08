@@ -1,0 +1,85 @@
+.problemCard{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:16px 0;
+    border-bottom:1px solid #2d333b;
+
+}
+
+.problemCard:last-child{
+
+    border-bottom:none;
+
+}
+
+.problemLeft{
+
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+
+}
+
+.problemLeft h3{
+
+    color:#f0f6fc;
+    font-size:17px;
+    font-weight:500;
+
+}
+
+.problemTags{
+
+    display:flex;
+    gap:10px;
+
+}
+
+.difficulty{
+
+    padding:4px 10px;
+    border-radius:8px;
+    font-size:13px;
+    font-weight:600;
+
+}
+
+.easy{
+
+    background:#163a21;
+    color:#4ade80;
+
+}
+
+.medium{
+
+    background:#4d3812;
+    color:#fbbf24;
+
+}
+
+.hard{
+
+    background:#4d1c24;
+    color:#fb7185;
+
+}
+
+.pattern{
+
+    background:#2d333b;
+    color:#c9d1d9;
+    padding:4px 10px;
+    border-radius:8px;
+    font-size:13px;
+
+}
+
+.problemTime{
+
+    color:#8b949e;
+    font-size:14px;
+
+}

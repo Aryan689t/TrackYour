@@ -5,8 +5,8 @@ import "./DSANavbar.css";
 
     return(
     <>
-
     <div className="dsaDashboard">
+            <Link to="/" className="backButton">←</Link>
         <h2>DSA Tracker</h2>
     <div className="navLink">
        <Link to="/Status"><div className="dsanavitem"><p>Status</p></div></Link> 
