@@ -1,11 +1,11 @@
 import {Link} from 'react-router-dom';
-import DSANavbar from "./dsa-components/DSANavbar";
-import StatsGrid from "./dsa-components/StatsGrid";
-import Heatmap from "./dsa-components/Heatmap";
-import ProblemList from "./dsa-components/ProblemList";
-//import DailyProgress from "./dsa-components/DailyProgress";
-//import ProblemSection from "./dsa-components/ProblemSection";
-//import DashboardHeader from "./dsa-components/DashboardHeader";
+import DSANavbar from "./status-components/DSANavbar";
+import StatsGrid from "./status-components/StatsGrid";
+import Heatmap from "./status-components/Heatmap";
+import ProblemList from "./status-components/ProblemList";
+//import DailyProgress from "./status-components/DailyProgress";
+//import ProblemSection from "./status-components/ProblemSection";
+//import DashboardHeader from "./status-components/DashboardHeader";
 
 
 import './Status.css'

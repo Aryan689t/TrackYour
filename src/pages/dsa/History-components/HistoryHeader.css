@@ -1,0 +1,59 @@
+.historyHeader{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:14px;
+
+}
+
+.historyTitle{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    border-bottom:2px solid #30363d;
+
+    padding-bottom:14px;
+
+}
+
+.historyTitle span{
+
+    color:#22c55e;
+
+    font-size:18px;
+
+    font-weight:700;
+
+    letter-spacing:2px;
+
+}
+
+.historyTitle h1{
+
+    margin:0;
+
+    color:#f8fafc;
+
+    font-size:38px;
+
+    font-weight:700;
+
+}
+
+.historyHeader p{
+
+    margin:0;
+
+    color:#9ca3af;
+
+    font-size:16px;
+
+    line-height:1.6;
+
+}

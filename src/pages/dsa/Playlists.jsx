@@ -1,5 +1,5 @@
 import {Link} from 'react-router-dom';
-import DSANavbar from "./dsa-components/DSANavbar";
+import DSANavbar from "./status-components/DSANavbar";
 
 
 function Playlists() {

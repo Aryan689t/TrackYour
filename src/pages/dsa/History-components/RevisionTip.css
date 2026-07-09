@@ -1,0 +1,53 @@
+.revisionTip{
+
+    display:flex;
+
+    align-items:flex-start;
+
+    background:#161b22;
+
+    border:1px solid #30363d;
+
+    border-radius:14px;
+
+    overflow:hidden;
+
+}
+
+.tipBar{
+
+    width:6px;
+
+    background:#22c55e;
+
+    min-height:100%;
+
+}
+
+.tipContent{
+
+    padding:18px 22px;
+
+}
+
+.tipContent h3{
+
+    margin:0 0 10px;
+
+    color:white;
+
+    font-size:18px;
+
+}
+
+.tipContent p{
+
+    margin:0;
+
+    color:#9ca3af;
+
+    line-height:1.7;
+
+    font-size:15px;
+
+}
