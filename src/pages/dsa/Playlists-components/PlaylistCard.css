@@ -1,0 +1,173 @@
+.playlistCard{
+
+    background:#161b22;
+
+    border:1px solid #30363d;
+
+    border-radius:18px;
+
+    padding:24px;
+
+    transition:.25s;
+
+    cursor:pointer;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:space-between;
+
+    min-height:190px;
+
+}
+
+.playlistCard:hover{
+
+    transform:translateY(-5px);
+
+    border-color:#2dd46f;
+
+    box-shadow:0 20px 40px rgba(0,0,0,.35);
+
+}
+
+.playlistTop{
+
+    display:flex;
+
+    gap:14px;
+
+    align-items:center;
+
+}
+
+.playlistEmoji{
+
+    width:60px;
+
+    height:60px;
+
+    background:#1f2937;
+
+    border-radius:16px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:30px;
+
+}
+
+.playlistTop h3{
+
+    margin:0;
+
+    color:white;
+
+    font-size:18px;
+
+}
+
+.playlistTop p{
+
+    margin-top:8px;
+
+    color:#9ca3af;
+
+}
+
+.playlistBottom{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-top:26px;
+
+}
+
+.playlistBottom span{
+
+    color:#8b949e;
+
+    font-size:14px;
+
+}
+
+.playlistBottom button{
+
+    background:none;
+
+    border:none;
+
+    color:#22c55e;
+
+    font-size:15px;
+
+    cursor:pointer;
+
+}
+
+.createCard{
+
+    border:2px dashed #3b4452;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+}
+
+.createCard:hover{
+
+    border-color:#22c55e;
+
+}
+
+.plusIcon{
+
+    width:64px;
+
+    height:64px;
+
+    border-radius:50%;
+
+    background:#22c55e;
+
+    color:white;
+
+    font-size:34px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    margin-bottom:18px;
+
+}
+
+.createCard h3{
+
+    color:white;
+
+    margin-bottom:10px;
+
+}
+
+.createCard p{
+
+    color:#9ca3af;
+
+    line-height:1.6;
+
+}
