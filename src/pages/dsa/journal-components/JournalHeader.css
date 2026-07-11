@@ -1,0 +1,31 @@
+.journalHeader{
+    margin-bottom:24px;
+    padding-bottom:22px;
+    border-bottom:1px solid rgba(255,255,255,.06);
+}
+
+.journalTitle{
+    display:flex;
+    align-items:flex-end;
+    gap:14px;
+}
+
+.journalTitle span{
+    color:#22c55e;
+    font-size:22px;
+    font-weight:700;
+}
+
+.journalTitle h1{
+    margin:0;
+    color:#f8fafc;
+    font-size:46px;
+    font-weight:600;
+}
+
+.journalHeader p{
+    margin-top:8px;
+    color:#8b949e;
+    font-size:15px;
+    line-height:1.6;
+}
