@@ -1,0 +1,157 @@
+.modalOverlay{
+    position:fixed;
+    inset:0;
+    background:rgba(13,17,23,.72);
+    backdrop-filter:blur(4px);
+
+    display:flex;
+    justify-content:center;
+    align-items:flex-start;
+
+    padding:60px 20px;
+    z-index:1000;
+
+    overflow-y:auto;
+}
+
+.modalCard{
+    width:100%;
+    max-width:560px;
+
+    background:#0f0f0f;
+    border:1px solid #222222;
+    border-radius:18px;
+
+    padding:24px;
+
+    box-shadow:0 20px 60px rgba(0,0,0,.5);
+}
+
+.modalHeader{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:20px;
+}
+
+.modalHeader h2{
+    margin:0;
+    color:#ffffff;
+    font-size:22px;
+    font-weight:700;
+}
+
+.modalClose{
+    width:36px;
+    height:36px;
+    border-radius:10px;
+
+    background:#141414;
+    border:1px solid #262626;
+    color:#d4d4d4;
+
+    font-size:22px;
+    line-height:1;
+    cursor:pointer;
+
+    transition:.2s;
+}
+
+.modalClose:hover{
+    background:#1a1a1a;
+    color:#f87171;
+    border-color:#f87171;
+}
+
+.modalForm{
+    display:flex;
+    flex-direction:column;
+    gap:16px;
+}
+
+.formRow{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:16px;
+}
+
+.modalForm label{
+    display:flex;
+    flex-direction:column;
+    gap:7px;
+}
+
+.modalForm label span{
+    color:#a1a1a1;
+    font-size:13px;
+    font-weight:600;
+}
+
+.modalForm input,
+.modalForm select,
+.modalForm textarea{
+    background:#050505;
+    border:1px solid #262626;
+    border-radius:10px;
+
+    padding:11px 14px;
+
+    color:#ffffff;
+    font-size:14px;
+    font-family:inherit;
+    font-weight:500;
+
+    outline:none;
+    transition:.2s;
+
+    resize:vertical;
+}
+
+.modalForm input:focus,
+.modalForm select:focus,
+.modalForm textarea:focus{
+    border-color:#ffffff;
+    box-shadow:0 0 0 3px rgba(255, 255, 255,.15);
+}
+
+.modalFooter{
+    display:flex;
+    justify-content:flex-end;
+    gap:12px;
+    margin-top:8px;
+}
+
+.modalBtn{
+    padding:11px 20px;
+    border-radius:10px;
+
+    font-size:14px;
+    font-weight:600;
+    font-family:inherit;
+    cursor:pointer;
+
+    transition:.2s;
+    border:1px solid #262626;
+}
+
+.modalBtn.ghost{
+    background:transparent;
+    color:#d4d4d4;
+}
+
+.modalBtn.ghost:hover{
+    border-color:#f87171;
+    color:#f87171;
+}
+
+.modalBtn.primary{
+    background:#ffffff;
+    color:#050505;
+    border-color:#ffffff;
+}
+
+.modalBtn.primary:hover{
+    background:#ffffff;
+}
+
+

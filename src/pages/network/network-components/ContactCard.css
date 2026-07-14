@@ -1,0 +1,155 @@
+.contactCard{
+    background:#0f0f0f;
+    border:1px solid #222222;
+    border-radius:18px;
+    padding:20px;
+
+    display:flex;
+    flex-direction:column;
+    gap:16px;
+
+    transition:.25s;
+}
+
+.contactCard:hover{
+    transform:translateY(-4px);
+    border-color:#3b4452;
+}
+
+.contactCardHead{
+    display:flex;
+    align-items:flex-start;
+    gap:14px;
+}
+
+.avatar{
+    width:54px;
+    height:54px;
+    border-radius:14px;
+
+    background:linear-gradient(135deg,#ffffff,#ffffff);
+    color:#050505;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-size:20px;
+    font-weight:700;
+    flex-shrink:0;
+}
+
+.contactHeadInfo{
+    flex:1;
+    min-width:0;
+}
+
+.contactHeadInfo h3{
+    margin:0;
+    color:#ffffff;
+    font-size:18px;
+    font-weight:700;
+}
+
+.contactRole{
+    margin:2px 0 0;
+    color:#d4d4d4;
+    font-size:13px;
+    font-weight:500;
+}
+
+.contactCompany{
+    display:inline-block;
+    margin-top:4px;
+    color:#a1a1a1;
+    font-size:12px;
+}
+
+.relBadge{
+    padding:5px 12px;
+    border-radius:10px;
+    font-size:12px;
+    font-weight:600;
+    white-space:nowrap;
+}
+
+.tagRow{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+}
+
+.contactTag{
+    background:#141414;
+    border:1px solid #262626;
+    color:#a1a1a1;
+    padding:4px 10px;
+    border-radius:8px;
+    font-size:12px;
+    font-weight:500;
+}
+
+.reminderRow{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+}
+
+.reminderBadge{
+    padding:4px 10px;
+    border-radius:8px;
+    font-size:12px;
+    font-weight:600;
+}
+
+.contactActions{
+    display:flex;
+    gap:10px;
+    margin-top:auto;
+}
+
+.actionBtn{
+    flex:1;
+    text-align:center;
+    text-decoration:none;
+
+    background:#141414;
+    color:#d4d4d4;
+    border:1px solid #262626;
+    border-radius:10px;
+    padding:10px;
+
+    font-size:13px;
+    font-weight:600;
+    font-family:inherit;
+    cursor:pointer;
+
+    transition:.2s;
+}
+
+.actionBtn:hover{
+    border-color:#ffffff;
+    color:#ffffff;
+}
+
+.actionBtn.primary{
+    background:#1a1a1a;
+    color:#ffffff;
+    border-color:#ffffff;
+}
+
+.actionBtn.primary:hover{
+    background:#1a1a1a;
+}
+
+.actionBtn.ghost{
+    background:transparent;
+}
+
+.actionBtn.ghost:hover{
+    background:#1a1a1a;
+    color:#f87171;
+    border-color:#f87171;
+}
+
+

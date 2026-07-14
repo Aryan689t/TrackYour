@@ -1,0 +1,50 @@
+.networkPage{
+    margin-left:260px;
+    padding:30px;
+    min-height:100vh;
+    box-sizing:border-box;
+    background:#050505;
+}
+
+.networkToolbar{
+    display:flex;
+    align-items:stretch;
+    gap:16px;
+    margin-bottom:24px;
+}
+
+.networkToolbar .filterBar{
+    flex:1;
+    margin-bottom:0;
+}
+
+.addContactBtn{
+    background:#ffffff;
+    color:#050505;
+    border:none;
+    border-radius:12px;
+
+    padding:0 22px;
+
+    font-size:15px;
+    font-weight:700;
+    font-family:inherit;
+
+    cursor:pointer;
+    white-space:nowrap;
+
+    transition:.2s;
+}
+
+.addContactBtn:hover{
+    background:#ffffff;
+    transform:translateY(-2px);
+}
+
+@media (max-width:900px){
+    .networkToolbar{
+        flex-direction:column;
+    }
+}
+
+

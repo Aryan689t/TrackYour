@@ -1,0 +1,64 @@
+.networkHeader{
+    margin-bottom:24px;
+}
+
+.headerTop{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    margin-bottom:20px;
+}
+
+.headerTitle h1{
+    margin:0;
+    color:#ffffff;
+    font-size:32px;
+    font-weight:700;
+}
+
+.headerTitle p{
+    margin:6px 0 0;
+    color:#a1a1a1;
+    font-size:14px;
+    font-weight:500;
+}
+
+.searchBar{
+    display:flex;
+    align-items:center;
+    gap:12px;
+
+    background:#0f0f0f;
+    border:1px solid #222222;
+    border-radius:12px;
+    padding:14px 18px;
+
+    transition:.25s;
+}
+
+.searchBar:focus-within{
+    border-color:#ffffff;
+    box-shadow:0 0 0 3px rgba(255, 255, 255,.15);
+}
+
+.searchIcon{
+    font-size:18px;
+    opacity:.7;
+}
+
+.searchBar input{
+    flex:1;
+    background:transparent;
+    border:none;
+    outline:none;
+    color:#ffffff;
+    font-size:15px;
+    font-weight:500;
+    font-family:inherit;
+}
+
+.searchBar input::placeholder{
+    color:#a1a1a1;
+}
+
+

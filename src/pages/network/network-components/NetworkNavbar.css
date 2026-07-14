@@ -1,0 +1,133 @@
+.networkSidebar{
+    width:260px;
+    height:100vh;
+
+    position:fixed;
+    top:0;
+    left:0;
+
+    background:#0a0a0a;
+    border-right:1px solid #141414;
+
+    padding:30px 20px;
+    box-sizing:border-box;
+
+    display:flex;
+    flex-direction:column;
+}
+
+.networkSidebar h2{
+    color:#ffffff;
+    font-size:26px;
+    font-weight:700;
+    letter-spacing:.5px;
+    margin-bottom:40px;
+}
+
+.networkSidebar h2 span{
+    color:#ffffff;
+}
+
+.navLink{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+.navLink a{
+    text-decoration:none;
+}
+
+.networkNavItem{
+    color:#d4d4d4;
+
+    padding:16px 18px;
+
+    border-radius:12px;
+
+    border-left:4px solid transparent;
+
+    transition:all .25s ease;
+
+    cursor:pointer;
+}
+
+.networkNavItem p{
+    margin:0;
+    font-size:16px;
+    font-weight:500;
+}
+
+.networkNavItem:hover{
+    background:#141414;
+    color:#ffffff;
+    border-left:4px solid #ffffff;
+    transform:translateX(6px);
+}
+
+.networkNavItem:hover p{
+    color:#ffffff;
+}
+
+.networkNavItem.active{
+    background:#141414;
+    color:#ffffff;
+    border-left:4px solid #ffffff;
+}
+
+.networkNavItem.active p{
+    color:#ffffff;
+}
+
+.networkNavItem:active{
+    transform:translateX(3px);
+}
+
+.sidebarFooter{
+    margin-top:auto;
+    padding-top:20px;
+    border-top:1px solid #141414;
+}
+
+.sidebarFooter p{
+    margin:0;
+    color:#ffffff;
+    font-size:14px;
+    font-weight:600;
+}
+
+.sidebarFooter span{
+    color:#a1a1a1;
+    font-size:12px;
+}
+
+.backButton{
+    width:40px;
+    height:40px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    margin-bottom:20px;
+
+    background:#141414;
+
+    color:#f5f5f5;
+
+    border-radius:10px;
+
+    text-decoration:none;
+
+    font-size:22px;
+    font-weight:600;
+
+    transition:.2s;
+}
+
+.backButton:hover{
+    background:#374151;
+    color:#ffffff;
+}
+
+

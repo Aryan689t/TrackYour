@@ -1,0 +1,59 @@
+.networkStats{
+    display:grid;
+    grid-template-columns:repeat(4,minmax(0,1fr));
+    gap:16px;
+    margin-bottom:24px;
+}
+
+.netStatCard{
+    display:flex;
+    align-items:center;
+    gap:16px;
+
+    background:#0f0f0f;
+    border:1px solid #222222;
+    border-radius:18px;
+    padding:20px;
+
+    transition:.25s;
+}
+
+.netStatCard:hover{
+    transform:translateY(-4px);
+    border-color:#3b4452;
+}
+
+.netStatIcon{
+    width:52px;
+    height:52px;
+    border-radius:16px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:24px;
+    flex-shrink:0;
+}
+
+.netStatIcon.green{ background:#1a1a1a; }
+.netStatIcon.lightgreen{ background:#1a1a1a; }
+.netStatIcon.blue{ background:#1a1a1a; }
+.netStatIcon.purple{ background:#1a1a1a; }
+
+.netStatBody h3{
+    margin:0;
+    color:#a1a1a1;
+    font-size:13px;
+    font-weight:600;
+    text-transform:uppercase;
+    letter-spacing:.5px;
+}
+
+.netStatValue{
+    color:#ffffff;
+    font-size:30px;
+    font-weight:700;
+    margin-top:4px;
+}
+
+
