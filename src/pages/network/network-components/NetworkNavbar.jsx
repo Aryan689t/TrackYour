@@ -5,9 +5,9 @@ function NetworkNavbar({ activePage, onNavClick, onAddContact }){
 
     const navItems = [
         { id:"home", label:"Home" },
-        { id:"contacts", label:"Contacts" },
+        
         { id:"add", label:"Add Contact" },
-        { id:"settings", label:"Settings" }
+        
     ];
 
     return(
