@@ -5,7 +5,7 @@ function JournalTimeline(){
 
     const entries=[
         {
-            date:"10",
+            date:"11",
             month:"JUL",
             year:"2026",
             day:"Friday",

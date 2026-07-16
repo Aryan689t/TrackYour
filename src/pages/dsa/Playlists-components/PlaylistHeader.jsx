@@ -5,7 +5,7 @@ function PlaylistHeader(){
         <div className="playlistHeader">
             <div>
                 <div className="playlistTitle">
-                    <span>04</span>
+                    
                     <h1>Playlists</h1>
                 </div>
                 <p>

@@ -4,7 +4,7 @@ function HistoryHeader(){
     return(
         <div className="historyHeader">
             <div className="historyTitle">
-                <span>03</span>
+                
                 <h1>History</h1>
             </div>
             <p>
