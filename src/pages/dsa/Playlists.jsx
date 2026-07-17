@@ -46,7 +46,7 @@ function Playlists() {
         title: "Graphs",
         icon: "🕸️",
         count: 22,
-        solved: 10,
+        solved: 0,
         description: "Graph algorithms covering BFS, DFS and shortest paths.",
         updated: "Today",
         color:"purple"
