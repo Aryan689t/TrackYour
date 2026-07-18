@@ -16,7 +16,7 @@ function Playlists() {
         title: "Blind 75",
         icon: "📘",
         count: 75,
-        solved: 38,
+        solved: 39,
         description: "Essential coding interview problems every developer should master.",
         updated: "Today",
         color:"blue"
