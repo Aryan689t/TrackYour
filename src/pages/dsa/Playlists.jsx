@@ -23,9 +23,9 @@ function Playlists() {
     },
 
     {
-        title: "Amazon OA",
+        title: "Amazon ",
         icon: "💼",
-        count: 48,
+        count: 34,
         solved: 21,
         description: "Frequently asked Amazon online assessment and interview questions.",
         updated: "Yesterday",
@@ -36,7 +36,7 @@ function Playlists() {
         title: "Revision",
         icon: "🔥",
         count: 31,
-        solved: 17,
+        solved: 16,
         description: "Problems marked for revision to strengthen weak concepts.",
         updated: "2 days ago",
         color:"red"
@@ -65,7 +65,6 @@ function Playlists() {
                 <CategorySection/>
             </main>
         </>
-    );
-}
+    );}
 
 export default Playlists;
