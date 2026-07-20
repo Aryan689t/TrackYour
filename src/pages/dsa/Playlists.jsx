@@ -17,7 +17,7 @@ function Playlists() {
         icon: "📘",
         count: 75,
         solved: 39,
-        description: "Essential coding interview problems every developer should master.",
+        description: "Essential coding interview problems every developer should do.",
         updated: "Today",
         color:"blue"
     },
@@ -46,10 +46,10 @@ function Playlists() {
         title: "Graphs",
         icon: "🕸️",
         count: 22,
-        solved: 0,
+        solved: 2,
         description: "Graph algorithms covering BFS, DFS and shortest paths.",
         updated: "Today",
-        color:"purple"
+        color:"yellow"
     }
 
 ];
