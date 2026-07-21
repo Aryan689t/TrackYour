@@ -18,8 +18,8 @@ function Playlists() {
         count: 75,
         solved: 39,
         description: "Essential coding interview problems every developer should do.",
-        updated: "Today",
-        color:"blue"
+        updated: "yesterday",
+        color:"red"
     },
 
     {
