@@ -19,7 +19,7 @@ function Playlists() {
         solved: 39,
         description: "Essential coding interview problems every developer should do.",
         updated: "yesterday",
-        color:"red"
+        color:"blue"
     },
 
     {
@@ -33,7 +33,7 @@ function Playlists() {
     },
 
     {
-        title: "Revision",
+        title: "Revise",
         icon: "🔥",
         count: 31,
         solved: 16,
