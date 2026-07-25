@@ -38,7 +38,7 @@ function Playlists() {
         count: 31,
         solved: 16,
         description: "Problems marked for revision to strengthen weak concepts.",
-        updated: "2 days ago",
+        updated: "5 days ago",
         color:"red"
     },
 
