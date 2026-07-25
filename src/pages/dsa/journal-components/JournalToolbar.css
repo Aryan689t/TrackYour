@@ -1,70 +1,73 @@
-.journalToolbar{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:16px;
-    margin-bottom:24px;
+.journalToolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
 }
 
-.journalSearch{
-    flex:1;
-    height:48px;
-    background:#161b22;
-    border:1px solid rgba(255,255,255,.06);
-    border-radius:12px;
-    color:#f8fafc;
-    font-size:14px;
-    padding:0 16px;
-    outline:none;
-    transition:.25s;
+.journalSearch {
+    flex: 1;
+    height: 48px;
+    background: var(--card-bg);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-btn);
+    color: var(--text-main);
+    font-size: 14px;
+    padding: 0 16px;
+    outline: none;
+    transition: 0.3s;
 }
 
-.journalSearch::placeholder{
-    color:#6b7280;
+.journalSearch::placeholder {
+    color: var(--text-muted);
 }
 
-.journalSearch:focus{
-    border-color:#22c55e;
+.journalSearch:focus {
+    border-color: var(--accent-2);
+    box-shadow: 0 0 12px var(--accent-glow);
 }
 
-.toolbarRight{
-    display:flex;
-    align-items:center;
+.toolbarRight {
+    display: flex;
+    align-items: center;
     flex-shrink: 0;
-    gap:18px;
+    gap: 18px;
 }
 
-.journalFilter{
-    width:170px;
-    height:48px;
-    background:#161b22;
-    border:1px solid rgba(255,255,255,.06);
-    border-radius:12px;
-    color:#f8fafc;
-    font-size:14px;
-    padding:0 14px;
-    outline:none;
-    cursor:pointer;
+.journalFilter {
+    width: 170px;
+    height: 48px;
+    background: var(--card-bg);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-btn);
+    color: var(--text-main);
+    font-size: 14px;
+    padding: 0 14px;
+    outline: none;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
-.journalFilter:hover{
-    border-color:#22c55e;
+.journalFilter:hover {
+    border-color: var(--accent-2);
 }
 
-.newEntryBtn{
-    height:48px;
-    padding:0 20px;
-    border:none;
-    border-radius:12px;
-    background:#22c55e;
-    color:white;
-    font-size:14px;
-    font-weight:600;
-    cursor:pointer;
-    transition:.25s;
+.newEntryBtn {
+    height: 48px;
+    padding: 0 20px;
+    border: none;
+    border-radius: var(--radius-btn);
+    background: var(--primary-accent);
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
-.newEntryBtn:hover{
-    background:#16a34a;
-    transform:translateY(-1px);
+.newEntryBtn:hover {
+    background: var(--primary-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px var(--accent-glow);
 }

@@ -1,85 +1,68 @@
-.heatmapCard{
-
-    background:#161b22;
-    border:1px solid #2d333b;
-    border-radius:18px;
-    padding:24px;
-    margin-top:28px;
-
+.heatmapCard {
+    margin-top: 28px;
+    padding: 24px;
 }
 
-.heatmapHeader{
-
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    margin-bottom:24px;
-
+.heatmapHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
 }
 
-.heatmapHeader h2{
-
-    color:#f0f6fc;
-    font-size:22px;
-    font-weight:600;
-
+.heatmapHeader h2 {
+    color: var(--text-main);
+    font-size: 22px;
+    font-weight: 600;
+    margin: 0;
 }
 
-.heatmapHeader button{
-
-    background:#21262d;
-    color:#c9d1d9;
-    border:none;
-    padding:8px 14px;
-    border-radius:8px;
-    cursor:pointer;
-
+.heatmapHeader button {
+    background: transparent;
+    color: var(--text-muted);
+    border: 1px solid var(--border-light);
+    padding: 8px 14px;
+    border-radius: var(--radius-btn);
+    cursor: pointer;
+    transition: 0.2s;
 }
-.heatmapGrid{
-    display:grid;
-    grid-template-columns:repeat(30,16px);
-    gap:6px;
+
+.heatmapHeader button:hover {
+    color: var(--text-main);
+    background: rgba(255, 255, 255, 0.05);
 }
-.heatCell{
-    width:16px;
-    height:16px;
-    background:#2d333b;
-    border-radius:3px;
 
+.heatmapGrid {
+    display: grid;
+    grid-template-columns: repeat(30, 16px);
+    gap: 6px;
+    overflow-x: auto;
+    padding-bottom: 8px;
 }
-.level1{
 
-    background:#0e4429;
-
+.heatCell {
+    width: 16px;
+    height: 16px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
+    border: 1px solid var(--border-light);
 }
-.level2{
 
-    background:#006d32;
+.level1 { background: rgba(124, 58, 237, 0.3); border-color: transparent; }
+.level2 { background: rgba(124, 58, 237, 0.5); border-color: transparent; }
+.level3 { background: rgba(124, 58, 237, 0.8); border-color: transparent; }
+.level4 { background: #9333EA; border-color: transparent; } /* Replaced green with purple accent */
 
+.heatmapFooter {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 24px;
+    color: var(--text-muted);
+    font-size: 14px;
 }
-.level3{
 
-    background:#26a641;
-
-}
-.level4{
-
-    background:#39d353;
-
-}
-.heatmapFooter{
-
-    display:flex;
-    align-items:center;
-    gap:12px;
-    margin-top:24px;
-    color:#8b949e;
-    font-size:14px;
-
-}
-.legend{
-
-    display:flex;
-    gap:4px;
-
+.legend {
+    display: flex;
+    gap: 6px;
 }

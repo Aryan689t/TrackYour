@@ -142,46 +142,46 @@ function Network(){
         });
 
     const stats = [
-        { icon:"👥", label:"Total Contacts", value:contacts.length, color:"green" },
-        { icon:"🧭", label:"Mentors", value:contacts.filter(c=>c.relationship==="Mentor").length, color:"lightgreen" },
-        { icon:"⭐", label:"Seniors", value:contacts.filter(c=>c.relationship==="Senior").length, color:"blue" },
+        { icon:"👥", label:"Total Contacts", value:contacts.length, color:"purple" },
+        { icon:"🧭", label:"Mentors", value:contacts.filter(c=>c.relationship==="Mentor").length, color:"purple" },
+        { icon:"⭐", label:"Seniors", value:contacts.filter(c=>c.relationship==="Senior").length, color:"purple" },
         { icon:"💼", label:"Recruiters", value:contacts.filter(c=>c.relationship==="Recruiter").length, color:"purple" }
     ];
 
     return(
-    <>
-        <NetworkNavbar
-            activePage={activePage}
-            onNavClick={setActivePage}
-            onAddContact={()=>setModalOpen(true)}
-        />
+        <div className="page-container">
+            <NetworkNavbar
+                activePage={activePage}
+                onNavClick={setActivePage}
+                onAddContact={()=>setModalOpen(true)}
+            />
 
-        <main className="networkPage">
-            <NetworkHeader search={search} onSearch={setSearch} />
+            <main className="networkPage page-content">
+                <NetworkHeader search={search} onSearch={setSearch} />
 
-            <NetworkStats stats={stats} />
+                <NetworkStats stats={stats} />
 
-            <div className="networkToolbar">
-                <FilterBar
-                    activeFilter={filter}
-                    onFilter={setFilter}
-                    sortBy={sortBy}
-                    onSort={setSortBy}
-                />
-                <button className="addContactBtn" onClick={()=>setModalOpen(true)}>
-                    + Add Contact
-                </button>
-            </div>
+                <div className="networkToolbar">
+                    <FilterBar
+                        activeFilter={filter}
+                        onFilter={setFilter}
+                        sortBy={sortBy}
+                        onSort={setSortBy}
+                    />
+                    <button className="btn-primary" onClick={()=>setModalOpen(true)}>
+                        + Add Contact
+                    </button>
+                </div>
 
-            <ContactList contacts={filtered} onRemove={handleRemove} />
-        </main>
+                <ContactList contacts={filtered} onRemove={handleRemove} />
+            </main>
 
-        <AddContactModal
-            open={modalOpen}
-            onClose={()=>setModalOpen(false)}
-            onAdd={handleAddContact}
-        />
-    </>
+            <AddContactModal
+                open={modalOpen}
+                onClose={()=>setModalOpen(false)}
+                onAdd={handleAddContact}
+            />
+        </div>
     )
 }
 export default Network

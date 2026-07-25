@@ -4,7 +4,7 @@ function StatCard({ icon, title, value, subtitle, description, color }) {
 
     return (
 
-        <div className="statCard">
+        <div className="premium-card statCard">
 
             <div className="statTop">
 

@@ -5,7 +5,7 @@ function Heatmap() {
     const boxes = Array(180).fill(0);
 
     return (
-        <div className="heatmapCard">
+        <div className="premium-card heatmapCard">
             <div className="heatmapHeader">
                 <h2>Submission Heatmap</h2>
                 <button>Last 6 Months ▼</button>

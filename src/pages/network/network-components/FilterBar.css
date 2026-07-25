@@ -1,73 +1,70 @@
-.filterBar{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:16px;
-    flex-wrap:wrap;
-
-    background:#0f0f0f;
-    border:1px solid #222222;
-    border-radius:14px;
-    padding:14px 18px;
-
-    margin-bottom:24px;
+.filterBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    background: var(--card-bg);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-card);
+    padding: 14px 18px;
+    margin-bottom: 24px;
 }
 
-.filterChips{
-    display:flex;
-    gap:10px;
-    flex-wrap:wrap;
+.filterChips {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
 }
 
-.filterChip{
-    background:#0a0a0a;
-    color:#d4d4d4;
-    border:1px solid #262626;
-    border-radius:10px;
-    padding:8px 16px;
-
-    font-size:14px;
-    font-weight:500;
-    font-family:inherit;
-    cursor:pointer;
-
-    transition:.2s;
+.filterChip {
+    background: rgba(255, 255, 255, 0.02);
+    color: var(--text-muted);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-btn);
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: inherit;
+    cursor: pointer;
+    transition: 0.2s;
 }
 
-.filterChip:hover{
-    color:#ffffff;
-    border-color:#ffffff;
+.filterChip:hover {
+    color: var(--text-main);
+    border-color: #8b5cf6; /* Purple hover */
+    background: rgba(139, 92, 246, 0.1);
 }
 
-.filterChip.active{
-    background:#1a1a1a;
-    color:#ffffff;
-    border-color:#ffffff;
+.filterChip.active {
+    background: var(--primary-accent);
+    color: #ffffff;
+    border-color: transparent;
 }
 
-.sortWrap{
-    display:flex;
-    align-items:center;
-    gap:10px;
-    color:#a1a1a1;
-    font-size:14px;
+.sortWrap {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--text-muted);
+    font-size: 14px;
 }
 
-.sortWrap select{
-    background:#0a0a0a;
-    color:#ffffff;
-    border:1px solid #262626;
-    border-radius:10px;
-    padding:8px 12px;
-    font-size:14px;
-    font-family:inherit;
-    font-weight:500;
-    cursor:pointer;
-    outline:none;
+.sortWrap select {
+    background: var(--card-bg);
+    color: var(--text-main);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-btn);
+    padding: 8px 12px;
+    font-size: 14px;
+    font-family: inherit;
+    font-weight: 500;
+    cursor: pointer;
+    outline: none;
+    transition: 0.2s;
 }
 
-.sortWrap select:focus{
-    border-color:#ffffff;
+.sortWrap select:focus {
+    border-color: #8b5cf6;
+    box-shadow: 0 0 12px rgba(139, 92, 246, 0.2);
 }
-
-

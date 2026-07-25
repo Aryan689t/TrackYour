@@ -1,64 +1,60 @@
-.networkHeader{
-    margin-bottom:24px;
+.networkHeader {
+    margin-bottom: 24px;
 }
 
-.headerTop{
-    display:flex;
-    justify-content:space-between;
-    align-items:flex-start;
-    margin-bottom:20px;
+.headerTop {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
 }
 
-.headerTitle h1{
-    margin:0;
-    color:#ffffff;
-    font-size:32px;
-    font-weight:700;
+.headerTitle h1 {
+    margin: 0;
+    color: var(--text-main);
+    font-size: 32px;
+    font-weight: 700;
 }
 
-.headerTitle p{
-    margin:6px 0 0;
-    color:#a1a1a1;
-    font-size:14px;
-    font-weight:500;
+.headerTitle p {
+    margin: 6px 0 0;
+    color: var(--text-muted);
+    font-size: 14px;
+    font-weight: 500;
 }
 
-.searchBar{
-    display:flex;
-    align-items:center;
-    gap:12px;
-
-    background:#0f0f0f;
-    border:1px solid #222222;
-    border-radius:12px;
-    padding:14px 18px;
-
-    transition:.25s;
+.searchBar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--card-bg);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-btn);
+    padding: 14px 18px;
+    transition: 0.3s;
 }
 
-.searchBar:focus-within{
-    border-color:#ffffff;
-    box-shadow:0 0 0 3px rgba(255, 255, 255,.15);
+.searchBar:focus-within {
+    border-color: #8b5cf6;
+    box-shadow: 0 0 12px rgba(139, 92, 246, 0.2);
 }
 
-.searchIcon{
-    font-size:18px;
-    opacity:.7;
+.searchIcon {
+    font-size: 18px;
+    opacity: 0.7;
 }
 
-.searchBar input{
-    flex:1;
-    background:transparent;
-    border:none;
-    outline:none;
-    color:#ffffff;
-    font-size:15px;
-    font-weight:500;
-    font-family:inherit;
+.searchBar input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: var(--text-main);
+    font-size: 15px;
+    font-weight: 500;
+    font-family: inherit;
 }
 
-.searchBar input::placeholder{
-    color:#a1a1a1;
+.searchBar input::placeholder {
+    color: var(--text-muted);
 }
-
-

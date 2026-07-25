@@ -1,173 +1,109 @@
-.playlistCard{
-
-    background:#161b22;
-
-    border:1px solid #30363d;
-
-    border-radius:18px;
-
-    padding:24px;
-
-    transition:.25s;
-
-    cursor:pointer;
-
-    display:flex;
-
-    flex-direction:column;
-
-    justify-content:space-between;
-
-    min-height:190px;
-
+.playlistCard {
+    background: var(--card-bg);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-card);
+    padding: 24px;
+    transition: var(--transition-smooth);
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 190px;
 }
 
-.playlistCard:hover{
-
-    transform:translateY(-5px);
-
-    border-color:#2dd46f;
-
-    box-shadow:0 20px 40px rgba(0,0,0,.35);
-
+.playlistCard:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-2);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
 }
 
-.playlistTop{
-
-    display:flex;
-
-    gap:14px;
-
-    align-items:center;
-
+.playlistTop {
+    display: flex;
+    gap: 14px;
+    align-items: center;
 }
 
-.playlistEmoji{
-
-    width:60px;
-
-    height:60px;
-
-    background:#1f2937;
-
-    border-radius:16px;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    font-size:30px;
-
+.playlistEmoji {
+    width: 60px;
+    height: 60px;
+    background: var(--card-bg-2);
+    border-radius: var(--radius-btn);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    border: 1px solid var(--border-light);
 }
 
-.playlistTop h3{
-
-    margin:0;
-
-    color:white;
-
-    font-size:18px;
-
+.playlistTop h3 {
+    margin: 0;
+    color: var(--text-main);
+    font-size: 18px;
 }
 
-.playlistTop p{
-
-    margin-top:8px;
-
-    color:#9ca3af;
-
+.playlistTop p {
+    margin-top: 8px;
+    color: var(--text-muted);
 }
 
-.playlistBottom{
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    margin-top:26px;
-
+.playlistBottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 26px;
 }
 
-.playlistBottom span{
-
-    color:#8b949e;
-
-    font-size:14px;
-
+.playlistBottom span {
+    color: var(--text-dark);
+    font-size: 14px;
 }
 
-.playlistBottom button{
-
-    background:none;
-
-    border:none;
-
-    color:#22c55e;
-
-    font-size:15px;
-
-    cursor:pointer;
-
+.playlistBottom button {
+    background: none;
+    border: none;
+    color: var(--accent-2);
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.2s;
+    font-weight: 600;
 }
 
-.createCard{
-
-    border:2px dashed #3b4452;
-
-    justify-content:center;
-
-    align-items:center;
-
-    text-align:center;
-
+.playlistBottom button:hover {
+    color: #a855f7;
 }
 
-.createCard:hover{
-
-    border-color:#22c55e;
-
+.createCard {
+    border: 1px dashed var(--border-hover);
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: transparent;
 }
 
-.plusIcon{
-
-    width:64px;
-
-    height:64px;
-
-    border-radius:50%;
-
-    background:#22c55e;
-
-    color:white;
-
-    font-size:34px;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    margin-bottom:18px;
-
+.createCard:hover {
+    border-color: var(--accent-2);
+    background: rgba(139, 92, 246, 0.04);
 }
 
-.createCard h3{
-
-    color:white;
-
-    margin-bottom:10px;
-
+.plusIcon {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: var(--primary-accent);
+    color: white;
+    font-size: 34px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 18px;
 }
 
-.createCard p{
+.createCard h3 {
+    color: var(--text-main);
+    margin-bottom: 10px;
+}
 
-    color:#9ca3af;
-
-    line-height:1.6;
-
+.createCard p {
+    color: var(--text-muted);
+    line-height: 1.6;
 }

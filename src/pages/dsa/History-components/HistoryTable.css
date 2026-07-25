@@ -1,51 +1,23 @@
-.historyTable{
-
-    background:#161b22;
-
-    border:1px solid #30363d;
-
-    border-radius:18px;
-
-    overflow:hidden;
-
+.historyTable {
+    overflow: hidden;
+    padding: 0; /* Override premium-card padding so the header spans fully */
 }
 
-.tableHeader{
-
-    display:grid;
-
-    grid-template-columns:
-    120px
-    2fr
-    120px
-    160px
-    120px
-    120px;
-
-    padding:18px 24px;
-
-    background:#0d1117;
-
-    color:#9ca3af;
-
-    font-size:14px;
-
-    font-weight:600;
-
-    border-bottom:1px solid #30363d;
-
-    position:sticky;
-
-    top:0;
-
-    z-index:10;
-
+.tableHeader {
+    display: grid;
+    grid-template-columns: 120px 2fr 120px 160px 120px 120px;
+    padding: 18px 24px;
+    background: rgba(255, 255, 255, 0.03);
+    color: var(--text-muted);
+    font-size: 14px;
+    font-weight: 600;
+    border-bottom: 1px solid var(--border-light);
+    position: sticky;
+    top: 0;
+    z-index: 10;
 }
 
-.tableBody{
-
-    max-height:500px;
-
-    overflow-y:auto;
-
+.tableBody {
+    max-height: 500px;
+    overflow-y: auto;
 }

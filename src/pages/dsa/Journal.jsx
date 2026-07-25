@@ -7,14 +7,14 @@ import "./Journal.css";
 
 function Journal(){
     return(
-        <>
+        <div className="page-container">
             <DSANavbar/>
-            <main className="journalPage">
+            <main className="journalPage page-content">
                 <JournalHeader/>
                 <JournalToolbar/>
                 <JournalTimeline/>
             </main>
-        </>
+        </div>
     );
 }
 

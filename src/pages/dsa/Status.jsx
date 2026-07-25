@@ -42,9 +42,9 @@ function Status(){
     ];
     
     return(
-        <>
-             <DSANavbar/>
-            <main className="statusPage">
+        <div className="page-container">
+            <DSANavbar/>
+            <main className="statusPage page-content">
                 <StatsGrid/>
                 <Heatmap/>
                 <div className="problemSection">
@@ -58,8 +58,7 @@ function Status(){
                     />
                 </div>
             </main>
-
-        </>
+        </div>
     );
 }
 

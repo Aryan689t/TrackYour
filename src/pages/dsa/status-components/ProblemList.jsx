@@ -3,7 +3,7 @@ import './ProblemList.css'
 
 function ProblemList({title,problems}){
     return(
-        <div className="problemList">
+        <div className="premium-card problemList">
             <h2>{title}</h2>
             {
             problems.map((problem,index)=>(

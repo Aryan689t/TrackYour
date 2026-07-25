@@ -19,7 +19,7 @@ function Playlists() {
         solved: 39,
         description: "Essential coding interview problems every developer should do.",
         updated: "yesterday",
-        color:"blue"
+        color:"purple"
     },
 
     {
@@ -29,7 +29,7 @@ function Playlists() {
         solved: 21,
         description: "Frequently asked Amazon online assessment and interview questions.",
         updated: "Yesterday",
-        color:"orange"
+        color:"purple"
     },
 
     {
@@ -39,7 +39,7 @@ function Playlists() {
         solved: 16,
         description: "Problems marked for revision to strengthen weak concepts.",
         updated: "5 days ago",
-        color:"red"
+        color:"purple"
     },
 
     {
@@ -49,14 +49,14 @@ function Playlists() {
         solved: 2,
         description: "Graph algorithms covering BFS, DFS and shortest paths.",
         updated: "Today",
-        color:"yellow"
+        color:"purple"
     }
 
 ];
     return (
-        <>
+        <div className="page-container">
             <DSANavbar/>
-            <main className="playlistPage">
+            <main className="playlistPage page-content">
                 <PlaylistHeader/>
                 <PlaylistToolbar/>
                 <PlaylistGrid
@@ -64,7 +64,7 @@ function Playlists() {
                 />
                 <CategorySection/>
             </main>
-        </>
+        </div>
     );}
 
 export default Playlists;

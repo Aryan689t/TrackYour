@@ -24,7 +24,7 @@ const REMINDER_COLORS = {
 
 function ContactCard({ contact, onRemove }){
     return(
-    <div className="contactCard">
+    <div className="premium-card contactCard">
         <div className="contactCardHead">
             <div className="avatar">{initials(contact.name)}</div>
             <div className="contactHeadInfo">

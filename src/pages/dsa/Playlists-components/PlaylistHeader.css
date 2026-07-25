@@ -25,65 +25,38 @@
 }
 
 .playlistTitle span{
-
-    color:#22c55e;
-
+    color:#9333EA;
     font-size:18px;
-
     font-weight:700;
-
     letter-spacing:2px;
-
 }
 
 .playlistTitle h1{
-
     margin:0;
-
-    color:#f8fafc;
-
+    color:var(--text-main);
     font-size:34px;
-
     font-weight:700;
-
 }
 
 .playlistHeader p{
-
-    color:#8b949e;
-
+    color:var(--text-muted);
     font-size:15px;
-
     margin:0;
-
 }
 
 .newPlaylistBtn{
-
-    background:#22c55e;
-
+    background:var(--primary-accent);
     color:white;
-
     border:none;
-
-    border-radius:12px;
-
+    border-radius:var(--radius-btn);
     padding:14px 22px;
-
     font-size:15px;
-
     font-weight:600;
-
     cursor:pointer;
-
     transition:.25s;
-
 }
 
 .newPlaylistBtn:hover{
-
-    background:#16a34a;
-
+    background:var(--primary-hover);
     transform:translateY(-2px);
-
 }

@@ -4,7 +4,7 @@ import "./HistoryTable.css";
 function HistoryTable({ history }) {
 
     return (
-        <div className="historyTable">
+        <div className="premium-card historyTable">
             <div className="tableHeader">
                 <div>Date</div>
                 <div>Problem</div>

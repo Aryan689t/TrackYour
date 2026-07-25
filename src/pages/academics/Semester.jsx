@@ -1,6 +1,6 @@
 import {Link , useParams} from "react-router-dom"
 import { useState , useEffect} from "react"
-import "./Semester.css";
+import "./semester.css";
 
 function Semester(){
 
@@ -90,87 +90,79 @@ function Semester(){
     }
 
     return(
-    <div className="semester-page">
+    <div className="semester-page page-container">
+     <div className="page-content semester-content">
+        <div className="semester-header">
+            <Link to="/academics" className="btn-secondary">
+                ← Back to Academics
+            </Link>
+            <h2>Semester {id}</h2>
+        </div>
 
-    <div className="semnum">
-        <h2>Semester {id}</h2>
-    </div>
+        <div className="premium-card input-section">
+            <div className="input-group">
+                <label>Subject Name</label>
+                <input className="input-standard" value={subject} onChange={(e)=>setSubject(e.target.value)}/>
+            </div>
+            <div className="input-group">
+                <label>Internal Marks</label>
+                <input className="input-standard" value={internal} onChange={(e)=>setInternal(e.target.value)}/>
+            </div>
+            <div className="input-group">
+                <label>External Marks</label>
+                <input className="input-standard" value={external} onChange={(e)=>setExternal(e.target.value)}/>
+            </div>
+            <div className="input-group">
+                <label>Credits</label>
+                <input className="input-standard" value={credits} onChange={(e)=>setCredits(e.target.value)}/>
+            </div>
+            <div className="action-buttons">
+                <button className="btn-primary" onClick={add}>+</button>
+                <button className="btn-primary" onClick={save}>Save Semester</button>
+            </div>
+        </div>
 
-    <div className="inputmarks">
-    <label>Subject Name</label>
-    <input value={subject}
-    onChange={(e)=>setSubject(e.target.value)}/>
-
-    <label>Internal Makrs</label>
-    <input value={internal}
-    onChange={(e)=>setInternal(e.target.value)}/>
-
-    <label>External Marks</label>
-    <input value={external}
-    onChange={(e)=>setExternal(e.target.value)}/>
-
-    <label>Credits</label>
-    <input value={credits}
-    onChange={(e)=>setCredits(e.target.value)}/>
-
-    <button onClick={add}>+</button>
-    <button onClick={save}>Save Semester</button>
-    </div>
-
-    <table>
-    <thead>
-        <tr>
-            <th>Subject</th>
-            <th>Internal</th>
-            <th>External</th>
-            <th>Credits</th>
-            <th>Total</th>
-            <th>Grade</th>
-            <th>GP</th>
-            <th>Action</th>
-        </tr>
-    </thead>
-
-    <tbody>
-
-        {subdetail.map((subdetail, index) => {
-
-            const total = getTotal(
-                subdetail.Internal,
-                subdetail.External
-            );
-
-            const gradeInfo = getGrade(total);
-
-            return (
-                <tr key={index}>
-
-                    <td>{subdetail.Subject}</td>
-
-                    <td>{subdetail.Internal}</td>
-
-                    <td>{subdetail.External}</td>
-
-                    <td>{subdetail.Credits}</td>
-
-                    <td>{total}</td>
-
-                    <td>{gradeInfo.grade}</td>
-
-                    <td>{gradeInfo.gradePoint}</td>
-
-                    <td><button onClick={()=>deleteSub(index)}>Delete</button></td>
-
+        <div className="premium-card table-section">
+            <table>
+            <thead>
+                <tr>
+                    <th>Subject</th>
+                    <th>Internal</th>
+                    <th>External</th>
+                    <th>Credits</th>
+                    <th>Total</th>
+                    <th>Grade</th>
+                    <th>GP</th>
+                    <th>Action</th>
                 </tr>
-            );
+            </thead>
 
-        })}
+            <tbody>
+                {subdetail.map((subdetail, index) => {
+                    const total = getTotal(subdetail.Internal, subdetail.External);
+                    const gradeInfo = getGrade(total);
+                    return (
+                        <tr key={index}>
+                            <td>{subdetail.Subject}</td>
+                            <td>{subdetail.Internal}</td>
+                            <td>{subdetail.External}</td>
+                            <td>{subdetail.Credits}</td>
+                            <td>{total}</td>
+                            <td>{gradeInfo.grade}</td>
+                            <td>{gradeInfo.gradePoint}</td>
+                            <td><button className="btn-danger" onClick={()=>deleteSub(index)}>Delete</button></td>
+                        </tr>
+                    );
+                })}
+            </tbody>
+            </table>
+        </div>
 
-         </tbody>
-        </table>
-
-   <p className="sgpa">SGPA : {calSgpa().toFixed(2)}</p>
- 
+        <div className="premium-card sgpa-card">
+            <p className="sgpa-label">Current SGPA</p>
+            <p className="sgpa-value">{calSgpa().toFixed(2)}</p>
+        </div>
+     </div>
     </div>
     )
 }

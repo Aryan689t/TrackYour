@@ -4,7 +4,7 @@ function NetworkStats({ stats }){
     return(
     <div className="networkStats">
         {stats.map((stat,index)=>(
-            <div className="netStatCard" key={index}>
+            <div className="premium-card netStatCard" key={index}>
                 <div className={`netStatIcon ${stat.color}`}>
                     {stat.icon}
                 </div>

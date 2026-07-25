@@ -1,3 +1,8 @@
+/* =========================================================
+   Landing Page — Black-first, purple-accented
+   Reference: Vercel / Linear / Raycast aesthetic
+   ========================================================= */
+
 .landing-page {
   min-height: 100vh;
   display: flex;
@@ -5,8 +10,10 @@
   align-items: center;
   position: relative;
   overflow: hidden;
+  background: #09090B;
 }
 
+/* ── Background Layers ── */
 .hero-bg {
   position: fixed;
   top: 0;
@@ -17,62 +24,79 @@
   pointer-events: none;
 }
 
+/* Base gradient — almost pure black, very subtle purple vein at top */
 .hero-gradient {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(255, 255, 255, 0.08), transparent),
-    radial-gradient(ellipse 60% 40% at 80% 50%, rgba(255, 255, 255, 0.04), transparent),
-    radial-gradient(ellipse 60% 40% at 20% 50%, rgba(255, 255, 255, 0.04), transparent),
-    linear-gradient(180deg, #050505 0%, #0a0a0a 50%, #050505 100%);
-  animation: gradientShift 8s ease-in-out infinite alternate;
+    radial-gradient(ellipse 70% 45% at 50% -10%, rgba(124, 58, 237, 0.12), transparent 70%),
+    radial-gradient(ellipse 50% 35% at 80% 60%,  rgba(147, 51, 234, 0.05), transparent 70%),
+    radial-gradient(ellipse 50% 35% at 20% 60%,  rgba(124, 58, 237, 0.04), transparent 70%),
+    linear-gradient(180deg, #09090B 0%, #0a0a0a 60%, #09090B 100%);
+  animation: gradientShift 10s ease-in-out infinite alternate;
 }
 
 @keyframes gradientShift {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0.7;
-  }
+  0%   { opacity: 1; }
+  100% { opacity: 0.75; }
 }
 
+/* Subtle grid, faded toward edges */
 .hero-pattern {
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
   background-size: 60px 60px;
-  mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, black 20%, transparent 70%);
-  -webkit-mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, black 20%, transparent 70%);
+  mask-image: radial-gradient(ellipse 75% 75% at 50% 50%, black 20%, transparent 72%);
+  -webkit-mask-image: radial-gradient(ellipse 75% 75% at 50% 50%, black 20%, transparent 72%);
 }
 
+/* ── Content ── */
 .hero-content {
   position: relative;
   z-index: 1;
   max-width: 1100px;
   width: 100%;
-  padding: 40px 24px;
+  padding: 60px 24px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 48px;
+  gap: 52px;
 }
 
+/* ── Logo / Title ── */
 .logo-section {
   text-align: center;
+  position: relative;
+}
+
+/* Soft purple radial glow behind the title */
+.logo-section::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -60%);
+  width: 520px;
+  height: 200px;
+  background: radial-gradient(ellipse at center, rgba(124, 58, 237, 0.15) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: -1;
 }
 
 .logo {
-  font-size: 56px;
+  font-size: 58px;
   font-weight: 700;
   color: #ffffff;
-  margin: 0 0 12px 0;
-  letter-spacing: -1px;
-  line-height: 1.1;
+  margin: 0 0 16px 0;
+  letter-spacing: -2px;
+  line-height: 1.05;
+  font-family: 'Georgia', 'Times New Roman', serif;
 }
 
+/* "Your" highlighted with a purple underline */
 .logo-accent {
   color: #ffffff;
   position: relative;
@@ -81,47 +105,60 @@
 .logo-accent::after {
   content: '';
   position: absolute;
-  bottom: 2px;
+  bottom: 0px;
   left: 0;
   width: 100%;
-  height: 3px;
-  background: #ffffff;
+  height: 2px;
+  background: linear-gradient(to right, #7C3AED, #9333EA);
   border-radius: 2px;
-  opacity: 0.5;
+  opacity: 0.85;
 }
 
 .tagline {
-  color: #a1a1a1;
-  font-size: 18px;
+  color: #A1A1AA;
+  font-size: 17px;
   font-weight: 400;
-  margin: 0;
-  max-width: 500px;
   margin: 0 auto;
-  line-height: 1.5;
+  max-width: 460px;
+  line-height: 1.6;
+  letter-spacing: 0.01em;
 }
 
+/* ── Feature Cards Grid ── */
 .feature-cards {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+  gap: 16px;
   width: 100%;
+  position: relative;
+}
+
+/* Subtle purple radial bloom behind the cards group */
+.feature-cards::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 700px;
+  height: 300px;
+  background: radial-gradient(ellipse at center, rgba(124, 58, 237, 0.07) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: -1;
 }
 
 @media (max-width: 900px) {
-  .feature-cards {
-    grid-template-columns: repeat(2, 1fr);
-  }
+  .feature-cards { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 500px) {
-  .feature-cards {
-    grid-template-columns: 1fr;
-  }
+  .feature-cards { grid-template-columns: 1fr; }
 }
 
+/* Individual card */
 .feature-card {
-  background: #0f0f0f;
-  border: 1px solid #222222;
+  background: #121212;
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 16px;
   padding: 28px 22px;
   text-decoration: none;
@@ -130,32 +167,52 @@
   align-items: center;
   text-align: center;
   gap: 14px;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
 }
 
+/* Purple top-line that fades in on hover */
 .feature-card::before {
   content: '';
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  height: 3px;
-  background: transparent;
-  transition: background 0.3s ease;
+  height: 2px;
+  background: linear-gradient(to right, #7C3AED, #9333EA);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+/* Soft purple glow inside card, hidden by default */
+.feature-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(124, 58, 237, 0.08), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
 }
 
 .feature-card:hover {
-  border-color: #262626;
-  transform: translateY(-4px);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+  border-color: rgba(139, 92, 246, 0.35);
+  transform: translateY(-5px);
+  box-shadow:
+    0 16px 48px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(124, 58, 237, 0.1);
 }
 
 .feature-card:hover::before {
-  background: #ffffff;
+  opacity: 1;
 }
 
+.feature-card:hover::after {
+  opacity: 1;
+}
+
+/* ── Feature Icons — purple-tinted ── */
 .feature-icon {
   width: 56px;
   height: 56px;
@@ -163,59 +220,69 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.3s ease;
+  transition: all 0.35s ease;
+  position: relative;
+  z-index: 1;
 }
 
-.academics-icon {
-  background: rgba(255, 255, 255, 0.05);
-  color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.dsa-icon {
-  background: rgba(255, 255, 255, 0.05);
-  color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.projects-icon {
-  background: rgba(255, 255, 255, 0.05);
-  color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
+/* All icons: purple-tinted background, matching border */
+.academics-icon,
+.dsa-icon,
+.projects-icon,
 .network-icon {
-  background: rgba(255, 255, 255, 0.05);
-  color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(124, 58, 237, 0.1);
+  color: #a78bfa;
+  border: 1px solid rgba(139, 92, 246, 0.25);
 }
 
 .feature-card:hover .feature-icon {
-  transform: scale(1.05);
+  background: rgba(124, 58, 237, 0.18);
+  border-color: rgba(139, 92, 246, 0.45);
+  color: #c4b5fd;
+  transform: scale(1.08);
 }
 
+/* ── Card Text ── */
 .feature-title {
   color: #ffffff;
   font-size: 17px;
   font-weight: 600;
   margin: 0;
+  position: relative;
+  z-index: 1;
 }
 
 .feature-desc {
-  color: #a1a1a1;
+  color: #A1A1AA;
   font-size: 13px;
-  line-height: 1.5;
+  line-height: 1.55;
   margin: 0;
+  position: relative;
+  z-index: 1;
 }
 
+/* ── Stats Bar ── */
 .stats-bar {
   display: flex;
   align-items: center;
   gap: 0;
-  background: #0f0f0f;
-  border: 1px solid #222222;
+  background: #121212;
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 16px;
   padding: 20px 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle purple line along the top of the stats bar */
+.stats-bar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(124, 58, 237, 0.5), transparent);
 }
 
 .stat-item {
@@ -226,70 +293,86 @@
   padding: 0 32px;
 }
 
+/* Purple-tinted divider */
 .stat-divider {
   width: 1px;
   height: 40px;
-  background: #222222;
+  background: linear-gradient(to bottom, transparent, rgba(124, 58, 237, 0.4), transparent);
 }
 
 .stat-number {
   color: #ffffff;
   font-size: 22px;
   font-weight: 700;
+  letter-spacing: -0.5px;
 }
 
 .stat-label {
-  color: #a1a1a1;
+  color: #A1A1AA;
   font-size: 13px;
   font-weight: 500;
 }
 
+/* ── CTA Section ── */
 .cta-section {
   display: flex;
   gap: 14px;
   align-items: center;
 }
 
+/* Primary button — purple gradient, matches brand */
 .cta-primary {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  background: #ffffff;
-  color: #050505;
+  background: linear-gradient(to right, #7C3AED, #9333EA);
+  color: #ffffff;
   text-decoration: none;
   padding: 14px 32px;
   border-radius: 10px;
   font-size: 16px;
   font-weight: 600;
+  border: none;
+  cursor: pointer;
   transition: all 0.25s ease;
 }
 
 .cta-primary:hover {
-  background: #e5e5e5;
+  background: linear-gradient(to right, #8b5cf6, #a855f7);
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 24px rgba(124, 58, 237, 0.35);
 }
 
 .cta-primary:active {
   transform: translateY(0);
 }
 
+/* Secondary button — ghost, minimal */
 .cta-secondary {
   display: inline-flex;
   align-items: center;
   background: transparent;
-  color: #d4d4d4;
+  color: #A1A1AA;
   text-decoration: none;
   padding: 14px 28px;
   border-radius: 10px;
   font-size: 15px;
   font-weight: 500;
-  border: 1px solid #222222;
+  border: 1px solid rgba(255, 255, 255, 0.08);
   transition: all 0.25s ease;
 }
 
 .cta-secondary:hover {
-  border-color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.2);
   color: #ffffff;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+/* ── Responsive ── */
+@media (max-width: 700px) {
+  .logo { font-size: 40px; }
+  .tagline { font-size: 15px; }
+  .stats-bar { padding: 16px 20px; }
+  .stat-item { padding: 0 18px; }
+  .stat-number { font-size: 18px; }
 }

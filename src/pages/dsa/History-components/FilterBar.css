@@ -1,45 +1,26 @@
-.filterBar{
-
-    display:flex;
-
-    gap:16px;
-
-    flex-wrap:wrap;
-
+.filterBar {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
 }
 
-.filterBar select{
-
-    padding:12px 18px;
-
-    background:#161b22;
-
-    color:#f8fafc;
-
-    border:1px solid #30363d;
-
-    border-radius:12px;
-
-    font-size:15px;
-
-    cursor:pointer;
-
-    transition:.25s;
-
-    outline:none;
-
+.filterBar select {
+    padding: 12px 18px;
+    background: var(--card-bg);
+    color: var(--text-main);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-btn);
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+    outline: none;
 }
 
-.filterBar select:hover{
-
-    border-color:#22c55e;
-
+.filterBar select:hover {
+    border-color: var(--border-hover);
 }
 
-.filterBar select:focus{
-
-    border-color:#22c55e;
-
-    box-shadow:0 0 0 3px rgba(34,197,94,.15);
-
+.filterBar select:focus {
+    border-color: var(--accent-2);
+    box-shadow: 0 0 12px var(--accent-glow);
 }

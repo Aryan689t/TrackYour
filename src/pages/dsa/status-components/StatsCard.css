@@ -1,133 +1,53 @@
-.statCard{
-
-    background:#161b22;
-
-    border:1px solid #2d333b;
-
-    border-radius:18px;
-
-    padding:18px;
-
-    transition:.25s;
-    
-    height:170px;
-
+.statCard {
+    height: 170px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 18px; /* Override premium-card padding slightly if needed, or rely on premium-card */
 }
 
-.statCard:hover{
+/* Remove hover since premium-card handles it */
 
-    transform:translateY(-4px);
-
-    border-color:#3b4452;
-
+.statTop {
+    display: flex;
+    align-items: center;
+    gap: 14px;
 }
 
-.statTop{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:14px;
-
-    margin-bottom:18px;
-
+.cardIcon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-light);
 }
 
-.cardIcon{
-
-    width:52px;
-
-    height:52px;
-
-    border-radius:16px;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    font-size:24px;
-
+.statHeading h3 {
+    color: var(--text-main);
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0;
 }
 
-.green{
-
-    background:#143d24;
-
+.statValue {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--text-main);
 }
 
-.purple{
-
-    background:#35204f;
-
+.statValue span {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text-muted);
+    margin-left: 6px;
 }
 
-.blue{
-
-    background:#153d61;
-
-}
-
-.lightgreen{
-
-    background:#1f5132;
-
-}
-
-.orange{
-
-    background:#5b3d10;
-
-}
-
-.red{
-
-    background:#5a1d24;
-
-}
-
-.statHeading h3{
-
-    color:#f8fafc;
-
-    font-size:16px;
-
-    font-weight:600;
-
-    margin:0;
-
-}
-
-.statValue{
-
-    font-size:30px;
-
-    font-weight:700;
-
-    color:white;
-
-}
-
-.statValue span{
-
-    font-size:18px;
-
-    font-weight:500;
-
-    color:#9ca3af;
-
-    margin-left:6px;
-
-}
-
-.statDescription{
-
-    margin-top:14px;
-
-    color:#9ca3af;
-
-    font-size:14px;
-
+.statDescription {
+    margin: 0;
+    color: var(--text-muted);
+    font-size: 14px;
 }

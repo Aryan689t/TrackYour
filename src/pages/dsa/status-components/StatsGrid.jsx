@@ -10,7 +10,7 @@ function StatsGrid(){
     value="37"
     subtitle=" days"
     description="Keep it up!"
-    color="green"
+    color="orange"
 />
 
 <StatCard
@@ -28,7 +28,7 @@ function StatsGrid(){
     value="281"
     subtitle=" problems"
     description="Across all topics"
-    color="blue"
+    color="purple"
 />
 
 <StatCard

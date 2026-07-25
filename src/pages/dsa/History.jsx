@@ -43,16 +43,16 @@ function History(){
         }
     ];
     return(
-        <>
+        <div className="page-container">
             <DSANavbar/>
-            <main className="historyPage">
+            <main className="historyPage page-content">
                 <HistoryHeader/>
                 <SearchBar/>
                 <FilterBar/>
                 <HistoryTable history={history}/>
                 <RevisionTip/>
             </main>
-        </>
+        </div>
     );
 }
 
