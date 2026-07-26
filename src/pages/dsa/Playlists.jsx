@@ -26,9 +26,9 @@ function Playlists() {
         title: "Amazon ",
         icon: "💼",
         count: 34,
-        solved: 21,
+        solved: 25,
         description: "Frequently asked Amazon online assessment and interview questions.",
-        updated: "Yesterday",
+        updated: "3 days ago",
         color:"purple"
     },
 
