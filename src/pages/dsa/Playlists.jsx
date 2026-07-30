@@ -49,7 +49,7 @@ function Playlists() {
         solved: 2,
         description: "Graph algorithms covering BFS, DFS and shortest paths.",
         updated: "Today",
-        color:"purple"
+        color:"red"
     }
 
 ];
