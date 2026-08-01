@@ -3,6 +3,7 @@ import DSANavbar from "./status-components/DSANavbar";
 import StatsGrid from "./status-components/StatsGrid";
 import Heatmap from "./status-components/Heatmap";
 import ProblemList from "./status-components/ProblemList";
+import StatusHeader from "./status-components/StatusHeader";
 //import DailyProgress from "./status-components/DailyProgress";
 //import ProblemSection from "./status-components/ProblemSection";
 //import DashboardHeader from "./status-components/DashboardHeader";
@@ -45,6 +46,7 @@ function Status(){
         <div className="page-container">
             <DSANavbar/>
             <main className="statusPage page-content">
+                            <StatusHeader/>
                 <StatsGrid/>
                 <Heatmap/>
                 <div className="problemSection">

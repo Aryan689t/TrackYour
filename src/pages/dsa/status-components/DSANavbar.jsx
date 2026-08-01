@@ -1,5 +1,6 @@
  import {Link} from "react-router-dom";
 import "./DSANavbar.css";
+import { HiMiniUser } from "react-icons/hi2";
  
  function DSANavbar(){
 
@@ -15,7 +16,18 @@ import "./DSANavbar.css";
         <Link to="/Roadmap"><div className="dsanavitem"><p>Roadmap</p></div></Link>
         <Link to="/Journal"><div className="dsanavitem"><p>Journal</p></div></Link>
     </div>
+    <div className="sidebar-profile">
 
+    <div className="profile-avatar">
+        <HiMiniUser size={28} />
+    </div>
+
+    <div className="profile-info">
+        <h4>Aryan</h4>
+        <p>Version 1.0</p>
+    </div>
+
+</div>
     </div>
     </>
     )

@@ -1,5 +1,5 @@
 .statCard {
-    height: 170px;
+    height: 120px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -15,8 +15,8 @@
 }
 
 .cardIcon {
-    width: 48px;
-    height: 48px;
+    width: 38px;
+    height: 38px;
     border-radius: 12px;
     display: flex;
     justify-content: center;
@@ -28,19 +28,19 @@
 
 .statHeading h3 {
     color: var(--text-main);
-    font-size: 16px;
+    font-size: 17px;
     font-weight: 600;
     margin: 0;
 }
 
 .statValue {
-    font-size: 32px;
+    font-size: 22px;
     font-weight: 700;
     color: var(--text-main);
 }
 
 .statValue span {
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 500;
     color: var(--text-muted);
     margin-left: 6px;
