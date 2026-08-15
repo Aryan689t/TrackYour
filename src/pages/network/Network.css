@@ -1,23 +1,35 @@
-.networkPage {
-    margin-left: 260px;
-    padding: 30px;
-    box-sizing: border-box;
+.network-page-root {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.network-search-row {
+  width: 100%;
+}
+
+.network-search-input {
+  max-width: 540px;
+  height: 44px;
+  padding: 10px 14px;
+  font-size: 14px;
 }
 
 .networkToolbar {
-    display: flex;
-    align-items: stretch;
-    gap: 16px;
-    margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
 }
 
 .networkToolbar .filterBar {
-    flex: 1;
-    margin-bottom: 0;
+  flex: 1;
 }
 
-@media (max-width: 900px) {
-    .networkToolbar {
-        flex-direction: column;
-    }
+@media (max-width: 768px) {
+  .networkToolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
 }

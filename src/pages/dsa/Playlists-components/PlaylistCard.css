@@ -1,109 +1,142 @@
 .playlistCard {
-    background: var(--card-bg);
-    border: 1px solid var(--border-light);
-    border-radius: var(--radius-card);
-    padding: 24px;
-    transition: var(--transition-smooth);
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    min-height: 190px;
+  background: var(--card-bg);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-card);
+  padding: 16px 18px;
+  transition: var(--transition-smooth);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 140px;
+  max-height: 165px;
 }
 
 .playlistCard:hover {
-    transform: translateY(-5px);
-    border-color: var(--accent-2);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  transform: translateY(-3px);
+  border-color: var(--border-hover);
+  background: var(--card-bg-2);
 }
 
 .playlistTop {
-    display: flex;
-    gap: 14px;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.playlistInfo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
 .playlistEmoji {
-    width: 60px;
-    height: 60px;
-    background: var(--card-bg-2);
-    border-radius: var(--radius-btn);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 30px;
-    border: 1px solid var(--border-light);
+  width: 42px;
+  height: 42px;
+  background: var(--card-bg-2);
+  border-radius: var(--radius-btn);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 22px;
+  border: 1px solid var(--border-light);
+  flex-shrink: 0;
 }
 
 .playlistTop h3 {
-    margin: 0;
-    color: var(--text-main);
-    font-size: 18px;
+  margin: 0;
+  color: var(--text-main);
+  font-size: 15px;
+  font-weight: 600;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
 .playlistTop p {
-    margin-top: 8px;
-    color: var(--text-muted);
+  margin-top: 2px;
+  margin-bottom: 0;
+  color: var(--text-dark);
+  font-size: 12px;
+}
+
+.playlistMenu {
+  background: transparent;
+  border: none;
+  color: var(--text-dark);
+  font-size: 16px;
+  cursor: pointer;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.playlistMenu:hover {
+  color: var(--text-main);
+  background: rgba(255, 255, 255, 0.06);
 }
 
 .playlistBottom {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 26px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 10px;
+  border-top: 1px solid var(--border-light);
 }
 
 .playlistBottom span {
-    color: var(--text-dark);
-    font-size: 14px;
+  color: var(--text-dark);
+  font-size: 12px;
 }
 
 .playlistBottom button {
-    background: none;
-    border: none;
-    color: var(--accent-2);
-    font-size: 15px;
-    cursor: pointer;
-    transition: 0.2s;
-    font-weight: 600;
+  background: none;
+  border: none;
+  color: var(--accent-1);
+  font-size: 13px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: var(--transition-fast);
 }
 
 .playlistBottom button:hover {
-    color: #a855f7;
+  color: #8b5cf6;
 }
 
 .createCard {
-    border: 1px dashed var(--border-hover);
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    background: transparent;
+  border: 1px dashed var(--border-hover);
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: transparent;
+  min-height: 140px;
 }
 
 .createCard:hover {
-    border-color: var(--accent-2);
-    background: rgba(139, 92, 246, 0.04);
+  border-color: var(--accent-1);
+  background: var(--accent-subtle);
 }
 
 .plusIcon {
-    width: 64px;
-    height: 64px;
-    border-radius: 50%;
-    background: var(--primary-accent);
-    color: white;
-    font-size: 34px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 18px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--accent-1);
+  color: white;
+  font-size: 22px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 8px;
 }
 
 .createCard h3 {
-    color: var(--text-main);
-    margin-bottom: 10px;
+  color: var(--text-main);
+  font-size: 15px;
+  margin-bottom: 4px;
 }
 
 .createCard p {
-    color: var(--text-muted);
-    line-height: 1.6;
+  color: var(--text-muted);
+  font-size: 12px;
+  margin: 0;
+  line-height: 1.4;
 }

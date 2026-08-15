@@ -1,15 +1,18 @@
+import React from "react";
 import "./SearchBar.css";
 
-function SearchBar() {
-
-    return (
-        <div className="searchBar">
-            <input
-                type="text"
-                placeholder="🔍 Search by problem, pattern, difficulty..."
-            />
-        </div>
-    );
+function SearchBar({ search = "", onSearch }) {
+  return (
+    <div className="searchBar">
+      <input
+        type="text"
+        className="input-standard"
+        placeholder="🔍 Search by problem or pattern..."
+        value={search}
+        onChange={(e) => onSearch && onSearch(e.target.value)}
+      />
+    </div>
+  );
 }
 
 export default SearchBar;

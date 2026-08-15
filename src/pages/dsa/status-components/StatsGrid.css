@@ -1,5 +1,18 @@
-.statsGrid{
-    display:grid;
-    grid-template-columns:repeat(3,minmax(130px,1fr));
-    gap:12px;
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 12px;
+  align-items: start;
+}
+
+@media (max-width: 1100px) {
+  .statsGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 540px) {
+  .statsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }

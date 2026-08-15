@@ -1,124 +1,162 @@
-/* ========================= */
-/* Semester Page */
-/* ========================= */
-
-.semester-content {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 60px 24px;
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
+.semester-page {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
-.semester-header {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 24px;
+.section-subtitle {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-main);
+  margin-bottom: 12px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
-.semester-header h2 {
-    font-size: 42px;
-    font-weight: 700;
-    margin: 0;
+.semester-form-card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 16px 20px !important;
 }
 
-/* ---------------- Inputs ---------------- */
-
-.input-section {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr) auto auto;
-    gap: 16px;
-    align-items: end;
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
 }
 
-@media (max-width: 1000px) {
-    .input-section {
-        grid-template-columns: repeat(2, 1fr);
-    }
+@media (max-width: 900px) {
+  .form-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
-@media (max-width: 600px) {
-    .input-section {
-        grid-template-columns: 1fr;
-    }
+@media (max-width: 520px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .input-group {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
 .input-group label {
-    color: var(--text-muted);
-    font-size: 14px;
-    font-weight: 500;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
 }
 
-.action-buttons {
-    display: flex;
-    gap: 12px;
+.form-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 2px;
 }
 
-/* ---------------- Table ---------------- */
+.semester-results-grid {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 16px;
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .semester-results-grid {
+    grid-template-columns: 1fr;
+  }
+}
 
 .table-section {
-    padding: 0; /* Remove padding to let table flush with border */
-    overflow-x: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 18px 20px !important;
+  overflow: hidden;
 }
 
-.table-section table {
-    width: 100%;
-    border-collapse: collapse;
-    text-align: left;
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
 }
 
-.table-section th {
-    background: rgba(255, 255, 255, 0.03);
-    color: var(--text-muted);
-    font-weight: 600;
-    padding: 16px 24px;
-    border-bottom: 1px solid var(--border-light);
+.semester-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 13px;
 }
 
-.table-section td {
-    padding: 16px 24px;
-    border-bottom: 1px solid var(--border-light);
-    color: var(--text-main);
+.semester-table th {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border-light);
+  color: var(--text-dark);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
-.table-section tbody tr:last-child td {
-    border-bottom: none;
+.semester-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  color: var(--text-main);
+  vertical-align: middle;
 }
 
-.table-section tbody tr:hover {
-    background: rgba(255, 255, 255, 0.02);
+.semester-table tr:last-child td {
+  border-bottom: none;
 }
 
-/* ---------------- SGPA ---------------- */
-
-.sgpa-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(135deg, rgba(124, 58, 237, 0.1), rgba(18, 18, 27, 0));
-    border-color: rgba(124, 58, 237, 0.2);
+.font-semibold {
+  font-weight: 600;
 }
 
-.sgpa-label {
-    color: var(--text-muted);
-    font-size: 16px;
-    font-weight: 500;
-    margin-bottom: 8px;
+/* SGPA Summary Card */
+.sgpa-summary-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 24px 20px !important;
+  gap: 8px;
+  background: var(--card-bg-2);
+  border: 1px solid rgba(124, 58, 237, 0.25);
 }
 
-.sgpa-value {
-    color: var(--success);
-    font-size: 48px;
-    font-weight: 700;
-    margin: 0;
-    text-shadow: 0 0 20px rgba(34, 197, 94, 0.2);
+.sgpa-eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--accent-1);
+}
+
+.sgpa-value-box {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.sgpa-number {
+  font-size: 42px;
+  font-weight: 700;
+  color: var(--text-main);
+  line-height: 1;
+}
+
+.sgpa-scale {
+  font-size: 13px;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.sgpa-desc {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin: 0;
 }

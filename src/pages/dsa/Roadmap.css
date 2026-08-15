@@ -1,0 +1,63 @@
+.roadmap-page-root {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.roadmap-overview-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  align-items: start;
+}
+
+@media (max-width: 768px) {
+  .roadmap-overview-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.topic-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 125px;
+  max-height: 145px;
+  padding: 16px 20px !important;
+}
+
+.topic-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.topic-num {
+  font-family: 'Georgia', serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--accent-1);
+}
+
+.topic-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-main);
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.topic-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 10px;
+  border-top: 1px solid var(--border-light);
+}
+
+.topic-link {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--accent-1);
+}

@@ -1,34 +1,61 @@
 :root {
-  /* ── Exact Landing Page Color Tokens ── */
-  --bg-dark:          #09090B;   /* Page background */
-  --bg-section:       #0D0D0D;   /* Section / sidebar bg */
-  --card-bg:          #121212;   /* Primary card */
-  --card-bg-2:        #181818;   /* Secondary card / nested */
+  /* ── Color Palette ── */
+  --bg-dark:          #09090b;   /* Primary dark background */
+  --bg-section:       #0d0d12;   /* Sidebar / elevated section bg */
+  --card-bg:          #13131a;   /* Primary card surface */
+  --card-bg-2:        #181822;   /* Secondary card / sub-card bg */
   --border-light:     rgba(255, 255, 255, 0.08);
-  --border-hover:     rgba(255, 255, 255, 0.15);
+  --border-hover:     rgba(124, 58, 237, 0.35);
 
-  /* ── Typography ── */
-  --text-main:        #FFFFFF;
-  --text-muted:       #A1A1AA;
-  --text-dark:        #71717A;
+  /* ── Typography Colors ── */
+  --text-main:        #f8fafc;   /* Primary white text */
+  --text-muted:       #94a3b8;   /* Muted secondary text */
+  --text-dark:        #64748b;   /* Darker tertiary text */
 
-  /* ── Brand Accent ── */
-  --accent-1:         #7C3AED;
-  --accent-2:         #9333EA;
-  --primary-accent:   linear-gradient(to right, #7C3AED, #9333EA);
-  --primary-hover:    linear-gradient(to right, #8b5cf6, #a855f7);
-  --accent-glow:      rgba(139, 92, 246, 0.2);
+  /* ── Brand Accent (TrackYour Purple) ── */
+  --accent-1:         #7c3aed;
+  --accent-2:         #9333ea;
+  --primary-accent:   linear-gradient(135deg, #7c3aed, #9333ea);
+  --primary-hover:    linear-gradient(135deg, #8b5cf6, #a855f7);
+  --accent-glow:      rgba(124, 58, 237, 0.18);
+  --accent-subtle:    rgba(124, 58, 237, 0.12);
 
   /* ── Semantic Colors ── */
   --success:          #22c55e;
+  --success-bg:       rgba(34, 197, 94, 0.12);
   --warning:          #f59e0b;
+  --warning-bg:       rgba(245, 158, 11, 0.12);
   --error:            #ef4444;
+  --error-bg:         rgba(239, 68, 68, 0.12);
+  --info:             #3b82f6;
+  --info-bg:          rgba(59, 130, 246, 0.12);
 
-  /* ── Spacing & Shape ── */
-  --spacing-base:     8px;
-  --radius-card:      16px;
+  /* ── Layout & Spacing Tokens ── */
+  --content-max-width: 1400px;
+  --content-padding-x: 32px;
+  --section-gap:       20px;
+  --card-gap:          16px;
+
+  /* ── Shapes & Radius ── */
+  --radius-card:      14px;
   --radius-btn:       10px;
-  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --radius-pill:      9999px;
+  --transition-fast:  all 0.18s ease;
+  --transition-smooth: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ── Global Scrollbar Hiding (Preserves full scrolling functionality) ── */
+html, body, .app-main-content, .sidebar-scrollable, .problem-modal-list, div, main, section, nav, article {
+  scrollbar-width: none !important; /* Firefox */
+  -ms-overflow-style: none !important; /* IE & Edge */
+}
+
+::-webkit-scrollbar,
+*::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  background: transparent !important;
 }
 
 * {
@@ -41,37 +68,27 @@ body {
   margin: 0;
   background: var(--bg-dark);
   color: var(--text-main);
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
   line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
 }
 
-h1, h2, h3, h4, h5, h6 {
+/* ── Typography Split ── */
+/* Display Serif for headers & major stat numbers */
+h1, h2, h3, .display-serif {
   font-family: 'Georgia', 'Times New Roman', serif;
   color: var(--text-main);
-  letter-spacing: -1px;
-  line-height: 1.1;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
   font-weight: 700;
 }
 
-.heroComp {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
+/* Sans-Serif for body, controls, navigation, badges, metadata */
+p, span, label, input, select, button, td, th, nav, a {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
 }
 
-.buttons {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-/* =========================================
-   Global Utility Classes (Design System)
-========================================= */
-
-/* Soft Grid Background wrapper */
+/* ── Global Layout Container ── */
 .page-container {
   min-height: 100vh;
   position: relative;
@@ -84,11 +101,11 @@ h1, h2, h3, h4, h5, h6 {
   position: fixed;
   inset: 0;
   background-image:
-    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-  background-size: 60px 60px;
-  mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 20%, transparent 80%);
-  -webkit-mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 20%, transparent 80%);
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 20%, transparent 85%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 20%, transparent 85%);
   pointer-events: none;
   z-index: 0;
 }
@@ -98,131 +115,252 @@ h1, h2, h3, h4, h5, h6 {
   z-index: 1;
 }
 
-/* Premium Card */
+/* Content Container Width Classes */
+.container-wide {
+  max-width: var(--content-max-width);
+  width: 100%;
+  margin: 0 auto;
+}
+
+.container-medium-wide {
+  max-width: var(--content-max-width);
+  width: 100%;
+  margin: 0 auto;
+}
+
+.container-medium {
+  max-width: var(--content-max-width);
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* ── Shared Card Base ── */
 .premium-card {
   background: var(--card-bg);
   border: 1px solid var(--border-light);
   border-radius: var(--radius-card);
-  padding: 28px 22px;
+  padding: 20px;
   transition: var(--transition-smooth);
   position: relative;
-  overflow: hidden;
-}
-
-.premium-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: transparent;
-  transition: background 0.3s ease;
+  height: auto; /* Content-driven height by default */
 }
 
 .premium-card:hover {
   border-color: var(--border-hover);
-  transform: translateY(-4px);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+  background: var(--card-bg-2);
 }
 
-.premium-card:hover::before {
-  background: var(--primary-accent);
+/* ── Content Density Variants ── */
+.card-very-compact {
+  padding: 12px 14px !important;
 }
 
-/* Standard Input */
-.input-standard {
-  background: var(--card-bg);
-  color: var(--text-main);
-  border: 1px solid var(--border-light);
-  border-radius: var(--radius-btn);
-  padding: 12px 16px;
-  font-family: inherit;
-  font-size: 15px;
-  outline: none;
-  transition: 0.3s;
-  width: 100%;
+.card-compact {
+  padding: 16px 18px !important;
 }
 
-.input-standard:focus {
-  border-color: var(--accent-2);
-  box-shadow: 0 0 12px var(--accent-glow);
+.card-standard {
+  padding: 20px 24px !important;
 }
 
-/* Gradient Button */
+.card-expanded {
+  padding: 24px 28px !important;
+}
+
+/* ── Buttons ── */
 .btn-primary {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  background: var(--primary-accent);
+  gap: 8px;
+  background: var(--accent-1);
   color: #ffffff;
   text-decoration: none;
-  padding: 14px 32px;
+  padding: 10px 20px;
   border-radius: var(--radius-btn);
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
-  border: none;
+  border: 1px solid transparent;
   cursor: pointer;
-  transition: all 0.25s ease;
+  transition: var(--transition-fast);
 }
 
 .btn-primary:hover {
-  background: var(--primary-hover);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(139, 92, 246, 0.3);
+  background: #8b5cf6;
+  box-shadow: 0 4px 14px var(--accent-glow);
 }
 
 .btn-primary:active {
-  transform: translateY(0);
+  transform: scale(0.98);
 }
 
-/* Secondary Button */
 .btn-secondary {
   display: inline-flex;
   align-items: center;
-  background: transparent;
-  color: #d4d4d4;
+  justify-content: center;
+  gap: 8px;
+  background: var(--card-bg);
+  color: var(--text-main);
   text-decoration: none;
-  padding: 14px 28px;
+  padding: 10px 20px;
   border-radius: var(--radius-btn);
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 500;
   border: 1px solid var(--border-light);
   cursor: pointer;
-  transition: all 0.25s ease;
+  transition: var(--transition-fast);
 }
 
 .btn-secondary:hover {
-  border-color: #ffffff;
+  border-color: var(--border-hover);
+  background: var(--card-bg-2);
   color: #ffffff;
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: transparent;
+  color: var(--text-muted);
+  text-decoration: none;
+  padding: 8px 14px;
+  border-radius: var(--radius-btn);
+  font-size: 14px;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.btn-ghost:hover {
+  color: var(--text-main);
   background: rgba(255, 255, 255, 0.05);
 }
 
-/* Danger Button */
 .btn-danger {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  background: var(--error);
-  color: #ffffff;
-  border: none;
+  gap: 8px;
+  background: rgba(239, 68, 68, 0.1);
+  color: var(--error);
+  border: 1px solid rgba(239, 68, 68, 0.2);
   border-radius: var(--radius-btn);
-  padding: 14px 28px;
-  font-size: 15px;
+  padding: 8px 14px;
+  font-size: 13px;
   font-weight: 600;
   cursor: pointer;
-  text-decoration: none;
-  transition: all 0.25s ease;
+  transition: var(--transition-fast);
 }
 
 .btn-danger:hover {
-  background: #dc2626;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(239, 68, 68, 0.3);
+  background: var(--error);
+  color: #ffffff;
+  border-color: var(--error);
 }
 
-.btn-danger:active {
-  transform: translateY(0);
-}
+/* ── Standard Inputs ── */
+.input-standard, select.input-standard {
+  background: var(--card-bg-2);
+  color: var(--text-main);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-btn);
+  padding: 10px 14px;
+  font-size: 14px;
+  height: 44px;
+  outline: none;
+  transition: var(--transition-fast);
+  width: 100%;
+}
+
+.input-standard::placeholder {
+  color: var(--text-dark);
+}
+
+.input-standard:focus {
+  border-color: var(--accent-1);
+  box-shadow: 0 0 0 3px var(--accent-subtle);
+}
+
+/* ── Badges ── */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.badge-purple {
+  background: var(--accent-subtle);
+  color: #a78bfa;
+  border: 1px solid rgba(124, 58, 237, 0.2);
+}
+
+.badge-success {
+  background: var(--success-bg);
+  color: #4ade80;
+  border: 1px solid rgba(34, 197, 94, 0.2);
+}
+
+.badge-warning {
+  background: var(--warning-bg);
+  color: #fbbf24;
+  border: 1px solid rgba(245, 158, 11, 0.2);
+}
+
+.badge-danger {
+  background: var(--error-bg);
+  color: #f87171;
+  border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+.badge-info {
+  background: var(--info-bg);
+  color: #60a5fa;
+  border: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+.badge-neutral {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text-muted);
+  border: 1px solid var(--border-light);
+}
+
+/* ── Empty State Helper ── */
+.empty-state-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px 24px;
+  background: var(--card-bg);
+  border: 1px border-dashed var(--border-light);
+  border-radius: var(--radius-card);
+  gap: 12px;
+}
+
+.empty-state-icon {
+  font-size: 32px;
+  margin-bottom: 4px;
+  opacity: 0.8;
+}
+
+.empty-state-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.empty-state-desc {
+  font-size: 14px;
+  color: var(--text-muted);
+  max-width: 420px;
+  line-height: 1.5;
+}

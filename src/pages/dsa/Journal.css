@@ -1,7 +1,5 @@
-.journalPage {
-    margin-left: 260px;
-    min-height: 100vh;
-    background: transparent;
-    padding: 40px;
-    box-sizing: border-box;
+.journal-page-root {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }

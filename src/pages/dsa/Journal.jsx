@@ -1,21 +1,24 @@
-import {Link} from 'react-router-dom';
-import DSANavbar from "./status-components/DSANavbar";
-import JournalHeader from "./Journal-components/JournalHeader";
-import JournalToolbar from "./Journal-components/JournalToolbar";
-import JournalTimeline from "./Journal-components/JournalTimeline";
+import React from "react";
+import AppShell from "../../components/layout/AppShell.jsx";
+import PageHeader from "../../components/common/PageHeader.jsx";
+import JournalToolbar from "./journal-components/JournalToolbar";
+import JournalTimeline from "./journal-components/JournalTimeline";
 import "./Journal.css";
 
-function Journal(){
-    return(
-        <div className="page-container">
-            <DSANavbar/>
-            <main className="journalPage page-content">
-                <JournalHeader/>
-                <JournalToolbar/>
-                <JournalTimeline/>
-            </main>
-        </div>
-    );
+function Journal() {
+  return (
+    <AppShell containerSize="medium-wide">
+      <div className="journal-page-root">
+        <PageHeader
+          eyebrow="DSA Workspace"
+          title="Journal"
+          description="Log daily learnings, intuition notes, key takeaways, and problem solving observations."
+        />
+        <JournalToolbar />
+        <JournalTimeline />
+      </div>
+    </AppShell>
+  );
 }
 
 export default Journal;

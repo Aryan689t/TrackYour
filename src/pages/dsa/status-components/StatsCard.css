@@ -1,53 +1,64 @@
 .statCard {
-    height: 120px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 18px; /* Override premium-card padding slightly if needed, or rely on premium-card */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 105px;
+  max-height: 120px;
+  padding: 12px 14px !important;
+  gap: 4px;
 }
 
-/* Remove hover since premium-card handles it */
-
 .statTop {
-    display: flex;
-    align-items: center;
-    gap: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .cardIcon {
-    width: 38px;
-    height: 38px;
-    border-radius: 12px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 24px;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid var(--border-light);
+  width: 26px;
+  height: 26px;
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  background: var(--card-bg-2);
+  border: 1px solid var(--border-light);
+  flex-shrink: 0;
 }
 
 .statHeading h3 {
-    color: var(--text-main);
-    font-size: 17px;
-    font-weight: 600;
-    margin: 0;
+  color: var(--text-muted);
+  font-size: 12px;
+  font-weight: 500;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.2;
+}
+
+.statMiddle {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  margin-top: 2px;
 }
 
 .statValue {
-    font-size: 22px;
-    font-weight: 700;
-    color: var(--text-main);
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text-main);
+  line-height: 1;
 }
 
-.statValue span {
-    font-size: 14px;
-    font-weight: 500;
-    color: var(--text-muted);
-    margin-left: 6px;
+.statSubtitle {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-dark);
 }
 
 .statDescription {
-    margin: 0;
-    color: var(--text-muted);
-    font-size: 14px;
+  margin: 0;
+  color: var(--text-dark);
+  font-size: 11px;
+  line-height: 1.2;
 }

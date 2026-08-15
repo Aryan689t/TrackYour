@@ -1,0 +1,39 @@
+.empty-state-root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 56px 24px;
+  background: var(--card-bg);
+  border: 1px dashed var(--border-light);
+  border-radius: var(--radius-card);
+  gap: 12px;
+  width: 100%;
+}
+
+.empty-state-icon {
+  font-size: 36px;
+  line-height: 1;
+  opacity: 0.85;
+}
+
+.empty-state-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-main);
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.empty-state-desc {
+  font-size: 14px;
+  color: var(--text-muted);
+  max-width: 440px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.empty-state-action {
+  margin-top: 8px;
+}

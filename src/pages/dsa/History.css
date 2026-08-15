@@ -1,10 +1,12 @@
-.historyPage {
-    margin-left: 260px;
-    min-height: 100vh;
-    background: transparent;
-    padding: 40px;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
+.history-page-root {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.history-controls-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
 }

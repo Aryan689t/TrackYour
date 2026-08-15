@@ -1,56 +1,72 @@
-/* =========================================
-   Academics Page Styles
-========================================= */
-
-.academics-content {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 60px 24px;
-}
-
-.academics-header {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 24px;
-    margin-bottom: 48px;
-}
-
-.academics-header h2 {
-    font-size: 42px;
-    font-weight: 700;
-    margin: 0;
+.academics-page {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .semester-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  align-items: start;
 }
 
-@media (max-width: 900px) {
-    .semester-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
+@media (max-width: 1024px) {
+  .semester-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
-@media (max-width: 500px) {
-    .semester-grid {
-        grid-template-columns: 1fr;
-    }
+@media (max-width: 560px) {
+  .semester-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .sem-card {
-    text-decoration: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 40px 24px;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 120px;
+  max-height: 140px;
+  gap: 10px;
+  padding: 16px 18px !important;
 }
 
-.sem-card h3 {
-    font-size: 20px;
-    font-weight: 600;
-    margin: 0;
+.sem-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sem-icon {
+  font-size: 18px;
+}
+
+.sem-card-body h3 {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 2px;
+  font-family: 'Georgia', serif;
+}
+
+.sem-subtext {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.sem-card-arrow {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--accent-1);
+  display: flex;
+  align-items: center;
+  transition: var(--transition-fast);
+}
+
+.sem-card:hover .sem-card-arrow {
+  color: #8b5cf6;
+  transform: translateX(4px);
 }

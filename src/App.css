@@ -1,6 +1,6 @@
 /* =========================================================
    Landing Page — Black-first, purple-accented
-   Reference: Vercel / Linear / Raycast aesthetic
+   Centred, cinematic layout (without persistent application sidebar)
    ========================================================= */
 
 .landing-page {
@@ -10,7 +10,7 @@
   align-items: center;
   position: relative;
   overflow: hidden;
-  background: #09090B;
+  background: var(--bg-dark);
 }
 
 /* ── Background Layers ── */
@@ -24,33 +24,25 @@
   pointer-events: none;
 }
 
-/* Base gradient — almost pure black, very subtle purple vein at top */
 .hero-gradient {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse 70% 45% at 50% -10%, rgba(124, 58, 237, 0.12), transparent 70%),
+    radial-gradient(ellipse 70% 45% at 50% -10%, rgba(124, 58, 237, 0.14), transparent 70%),
     radial-gradient(ellipse 50% 35% at 80% 60%,  rgba(147, 51, 234, 0.05), transparent 70%),
     radial-gradient(ellipse 50% 35% at 20% 60%,  rgba(124, 58, 237, 0.04), transparent 70%),
-    linear-gradient(180deg, #09090B 0%, #0a0a0a 60%, #09090B 100%);
-  animation: gradientShift 10s ease-in-out infinite alternate;
+    linear-gradient(180deg, var(--bg-dark) 0%, #0c0c10 60%, var(--bg-dark) 100%);
 }
 
-@keyframes gradientShift {
-  0%   { opacity: 1; }
-  100% { opacity: 0.75; }
-}
-
-/* Subtle grid, faded toward edges */
 .hero-pattern {
   position: absolute;
   inset: 0;
   background-image:
     linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
-  background-size: 60px 60px;
-  mask-image: radial-gradient(ellipse 75% 75% at 50% 50%, black 20%, transparent 72%);
-  -webkit-mask-image: radial-gradient(ellipse 75% 75% at 50% 50%, black 20%, transparent 72%);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse 75% 75% at 50% 50%, black 20%, transparent 75%);
+  -webkit-mask-image: radial-gradient(ellipse 75% 75% at 50% 50%, black 20%, transparent 75%);
 }
 
 /* ── Content ── */
@@ -63,7 +55,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 52px;
+  gap: 48px;
 }
 
 /* ── Logo / Title ── */
@@ -72,7 +64,6 @@
   position: relative;
 }
 
-/* Soft purple radial glow behind the title */
 .logo-section::before {
   content: '';
   position: absolute;
@@ -87,18 +78,17 @@
 }
 
 .logo {
-  font-size: 58px;
+  font-size: 56px;
   font-weight: 700;
-  color: #ffffff;
-  margin: 0 0 16px 0;
-  letter-spacing: -2px;
+  color: var(--text-main);
+  margin: 0 0 14px 0;
+  letter-spacing: -0.02em;
   line-height: 1.05;
-  font-family: 'Georgia', 'Times New Roman', serif;
+  font-family: 'Georgia', serif;
 }
 
-/* "Your" highlighted with a purple underline */
 .logo-accent {
-  color: #ffffff;
+  color: var(--text-main);
   position: relative;
 }
 
@@ -109,156 +99,88 @@
   left: 0;
   width: 100%;
   height: 2px;
-  background: linear-gradient(to right, #7C3AED, #9333EA);
+  background: var(--primary-accent);
   border-radius: 2px;
   opacity: 0.85;
 }
 
 .tagline {
-  color: #A1A1AA;
-  font-size: 17px;
+  color: var(--text-muted);
+  font-size: 16px;
   font-weight: 400;
   margin: 0 auto;
-  max-width: 460px;
+  max-width: 480px;
   line-height: 1.6;
-  letter-spacing: 0.01em;
 }
 
 /* ── Feature Cards Grid ── */
 .feature-cards {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
+  gap: 18px;
   width: 100%;
   position: relative;
-}
-
-/* Subtle purple radial bloom behind the cards group */
-.feature-cards::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 700px;
-  height: 300px;
-  background: radial-gradient(ellipse at center, rgba(124, 58, 237, 0.07) 0%, transparent 70%);
-  pointer-events: none;
-  z-index: -1;
 }
 
 @media (max-width: 900px) {
   .feature-cards { grid-template-columns: repeat(2, 1fr); }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 520px) {
   .feature-cards { grid-template-columns: 1fr; }
 }
 
-/* Individual card */
 .feature-card {
-  background: #121212;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 16px;
-  padding: 28px 22px;
+  background: var(--card-bg);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-card);
+  padding: 28px 20px;
   text-decoration: none;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   gap: 14px;
-  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
-  overflow: hidden;
-}
-
-/* Purple top-line that fades in on hover */
-.feature-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: linear-gradient(to right, #7C3AED, #9333EA);
-  opacity: 0;
-  transition: opacity 0.35s ease;
-}
-
-/* Soft purple glow inside card, hidden by default */
-.feature-card::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(124, 58, 237, 0.08), transparent 70%);
-  opacity: 0;
-  transition: opacity 0.35s ease;
-  pointer-events: none;
+  transition: var(--transition-smooth);
 }
 
 .feature-card:hover {
-  border-color: rgba(139, 92, 246, 0.35);
-  transform: translateY(-5px);
-  box-shadow:
-    0 16px 48px rgba(0, 0, 0, 0.5),
-    0 0 0 1px rgba(124, 58, 237, 0.1);
+  border-color: var(--border-hover);
+  background: var(--card-bg-2);
+  transform: translateY(-4px);
 }
 
-.feature-card:hover::before {
-  opacity: 1;
-}
-
-.feature-card:hover::after {
-  opacity: 1;
-}
-
-/* ── Feature Icons — purple-tinted ── */
 .feature-icon {
-  width: 56px;
-  height: 56px;
-  border-radius: 14px;
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.35s ease;
-  position: relative;
-  z-index: 1;
-}
-
-/* All icons: purple-tinted background, matching border */
-.academics-icon,
-.dsa-icon,
-.projects-icon,
-.network-icon {
-  background: rgba(124, 58, 237, 0.1);
+  background: var(--accent-subtle);
   color: #a78bfa;
-  border: 1px solid rgba(139, 92, 246, 0.25);
+  border: 1px solid rgba(124, 58, 237, 0.25);
+  transition: var(--transition-fast);
 }
 
 .feature-card:hover .feature-icon {
-  background: rgba(124, 58, 237, 0.18);
-  border-color: rgba(139, 92, 246, 0.45);
-  color: #c4b5fd;
-  transform: scale(1.08);
+  color: #ffffff;
+  background: var(--accent-1);
 }
 
-/* ── Card Text ── */
 .feature-title {
-  color: #ffffff;
+  color: var(--text-main);
   font-size: 17px;
   font-weight: 600;
   margin: 0;
-  position: relative;
-  z-index: 1;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
 .feature-desc {
-  color: #A1A1AA;
+  color: var(--text-muted);
   font-size: 13px;
-  line-height: 1.55;
+  line-height: 1.5;
   margin: 0;
-  position: relative;
-  z-index: 1;
 }
 
 /* ── Stats Bar ── */
@@ -266,23 +188,10 @@
   display: flex;
   align-items: center;
   gap: 0;
-  background: #121212;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 16px;
-  padding: 20px 40px;
-  position: relative;
-  overflow: hidden;
-}
-
-/* Subtle purple line along the top of the stats bar */
-.stats-bar::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 10%;
-  right: 10%;
-  height: 1px;
-  background: linear-gradient(to right, transparent, rgba(124, 58, 237, 0.5), transparent);
+  background: var(--card-bg);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-card);
+  padding: 18px 36px;
 }
 
 .stat-item {
@@ -290,90 +199,32 @@
   flex-direction: column;
   align-items: center;
   gap: 4px;
-  padding: 0 32px;
+  padding: 0 28px;
 }
 
-/* Purple-tinted divider */
 .stat-divider {
   width: 1px;
-  height: 40px;
-  background: linear-gradient(to bottom, transparent, rgba(124, 58, 237, 0.4), transparent);
+  height: 36px;
+  background: var(--border-light);
 }
 
 .stat-number {
-  color: #ffffff;
+  color: var(--text-main);
   font-size: 22px;
   font-weight: 700;
-  letter-spacing: -0.5px;
+  font-family: 'Georgia', serif;
 }
 
 .stat-label {
-  color: #A1A1AA;
-  font-size: 13px;
+  color: var(--text-dark);
+  font-size: 12px;
   font-weight: 500;
 }
 
-/* ── CTA Section ── */
-.cta-section {
-  display: flex;
-  gap: 14px;
-  align-items: center;
-}
-
-/* Primary button — purple gradient, matches brand */
-.cta-primary {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  background: linear-gradient(to right, #7C3AED, #9333EA);
-  color: #ffffff;
-  text-decoration: none;
-  padding: 14px 32px;
-  border-radius: 10px;
-  font-size: 16px;
-  font-weight: 600;
-  border: none;
-  cursor: pointer;
-  transition: all 0.25s ease;
-}
-
-.cta-primary:hover {
-  background: linear-gradient(to right, #8b5cf6, #a855f7);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(124, 58, 237, 0.35);
-}
-
-.cta-primary:active {
-  transform: translateY(0);
-}
-
-/* Secondary button — ghost, minimal */
-.cta-secondary {
-  display: inline-flex;
-  align-items: center;
-  background: transparent;
-  color: #A1A1AA;
-  text-decoration: none;
-  padding: 14px 28px;
-  border-radius: 10px;
-  font-size: 15px;
-  font-weight: 500;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  transition: all 0.25s ease;
-}
-
-.cta-secondary:hover {
-  border-color: rgba(255, 255, 255, 0.2);
-  color: #ffffff;
-  background: rgba(255, 255, 255, 0.04);
-}
-
-
-/* ── Responsive ── */
 @media (max-width: 700px) {
-  .logo { font-size: 40px; }
-  .tagline { font-size: 15px; }
-  .stats-bar { padding: 16px 20px; }
-  .stat-item { padding: 0 18px; }
+  .logo { font-size: 38px; }
+  .tagline { font-size: 14px; }
+  .stats-bar { padding: 14px 16px; }
+  .stat-item { padding: 0 14px; }
   .stat-number { font-size: 18px; }
 }
