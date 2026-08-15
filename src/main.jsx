@@ -58,7 +58,7 @@ const router = createBrowserRouter([
     element: <Journal />
   },
 ], {
-  basename: "/TrackYour/",
+  basename: "/TrackYour",
 });
 
 createRoot(document.getElementById('root')).render(
