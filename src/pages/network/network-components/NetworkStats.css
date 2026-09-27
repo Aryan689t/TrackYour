@@ -1,8 +1,7 @@
 .networkStats {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 12px;
-  margin-bottom: 0;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
 }
 
 @media (max-width: 900px) {
@@ -11,47 +10,41 @@
   }
 }
 
+@media (max-width: 520px) {
+  .networkStats {
+    grid-template-columns: 1fr;
+  }
+}
+
 .netStatCard {
   display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 12px 14px !important;
-  min-height: 85px;
-  max-height: 100px;
+  flex-direction: column;
+  gap: 8px;
+  padding: 14px 16px !important;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
 }
 
-.netStatIcon {
-  width: 36px;
-  height: 36px;
-  border-radius: 8px;
+.netStatHeader {
   display: flex;
-  justify-content: center;
   align-items: center;
-  font-size: 18px;
-  flex-shrink: 0;
-  background: rgba(139, 92, 246, 0.12);
-  border: 1px solid rgba(139, 92, 246, 0.2);
+  justify-content: space-between;
 }
 
-.netStatIcon.green    { background: rgba(34, 197, 94, 0.1); border-color: rgba(34, 197, 94, 0.2); }
-.netStatIcon.lightgreen { background: rgba(74, 222, 128, 0.1); border-color: rgba(74, 222, 128, 0.2); }
-.netStatIcon.blue     { background: rgba(96, 165, 250, 0.1); border-color: rgba(96, 165, 250, 0.2); }
-.netStatIcon.purple   { background: rgba(139, 92, 246, 0.12); border-color: rgba(139, 92, 246, 0.2); }
-
-.netStatBody h3 {
-  margin: 0;
-  color: var(--text-muted);
+.netStatLabel {
+  color: var(--text-dark);
   font-size: 11px;
-  font-weight: 600;
+  font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.04em;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
 .netStatValue {
   color: var(--text-main);
-  font-size: 24px;
-  font-weight: 700;
-  margin-top: 2px;
+  font-size: 22px;
+  font-weight: 600;
   line-height: 1;
+  letter-spacing: -0.02em;
 }
+

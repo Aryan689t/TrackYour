@@ -10,7 +10,7 @@ function Playlists() {
   const playlists = [
     {
       title: "Blind 75",
-      icon: "📘",
+      icon: "Top 75",
       count: 75,
       solved: 39,
       description: "Essential coding interview problems every developer should do.",
@@ -19,7 +19,7 @@ function Playlists() {
     },
     {
       title: "Amazon OA",
-      icon: "💼",
+      icon: "Interview",
       count: 34,
       solved: 25,
       description: "Frequently asked Amazon online assessment and interview questions.",
@@ -27,8 +27,8 @@ function Playlists() {
       color: "purple"
     },
     {
-      title: "Revise",
-      icon: "🔥",
+      title: "Revision Queue",
+      icon: "Revisit",
       count: 31,
       solved: 16,
       description: "Problems marked for revision to strengthen weak concepts.",
@@ -36,8 +36,8 @@ function Playlists() {
       color: "purple"
     },
     {
-      title: "Graphs",
-      icon: "🕸️",
+      title: "Graphs Mastery",
+      icon: "Topic",
       count: 22,
       solved: 2,
       description: "Graph algorithms covering BFS, DFS and shortest paths.",

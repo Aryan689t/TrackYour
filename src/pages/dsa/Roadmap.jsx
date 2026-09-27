@@ -1,16 +1,15 @@
 import React from "react";
 import AppShell from "../../components/layout/AppShell.jsx";
 import PageHeader from "../../components/common/PageHeader.jsx";
-import EmptyState from "../../components/common/EmptyState.jsx";
 import "./Roadmap.css";
 
 function Roadmap() {
   const topics = [
-    { title: "Arrays & Hashing", count: "15 Problems", status: "In Progress" },
-    { title: "Two Pointers & Sliding Window", count: "12 Problems", status: "Not Started" },
-    { title: "Stack & Queue", count: "10 Problems", status: "Not Started" },
-    { title: "Trees & Graphs", count: "25 Problems", status: "Not Started" },
-    { title: "Dynamic Programming", count: "20 Problems", status: "Not Started" }
+    { title: "Arrays & Hashing", count: "15 Problems", status: "In Progress", isStarted: true },
+    { title: "Two Pointers & Sliding Window", count: "12 Problems", status: "Not Started", isStarted: false },
+    { title: "Stack & Queue", count: "10 Problems", status: "Not Started", isStarted: false },
+    { title: "Trees & Graphs", count: "25 Problems", status: "Not Started", isStarted: false },
+    { title: "Dynamic Programming", count: "20 Problems", status: "Not Started", isStarted: false }
   ];
 
   return (
@@ -24,15 +23,20 @@ function Roadmap() {
 
         <div className="roadmap-overview-grid">
           {topics.map((topic, index) => (
-            <div key={index} className="premium-card topic-card">
-              <div className="topic-header">
-                <span className="topic-num">0{index + 1}</span>
-                <span className="badge badge-purple">{topic.count}</span>
+            <div key={index} className="topic-card">
+              <div className="topic-main-info">
+                <span className="topic-num">{index + 1}</span>
+                <div className="topic-title-box">
+                  <h3 className="topic-title">{topic.title}</h3>
+                  <span className="topic-sub">{topic.count}</span>
+                </div>
               </div>
-              <h3 className="topic-title">{topic.title}</h3>
-              <div className="topic-footer">
-                <span className="badge badge-neutral">{topic.status}</span>
-                <span className="topic-link">Explore →</span>
+
+              <div className="topic-meta-right">
+                <span className={`badge ${topic.isStarted ? "badge-purple" : "badge-neutral"}`}>
+                  {topic.status}
+                </span>
+                <span className="topic-link">Explore module →</span>
               </div>
             </div>
           ))}

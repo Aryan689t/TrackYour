@@ -1,65 +1,56 @@
-import StatCard from "./StatsCard.jsx";
-import './StatsGrid.css';
+import React from "react";
+import "./StatsGrid.css";
 
-function StatsGrid(){
+function StatsGrid() {
+  return (
+    <div className="status-inline-summary">
+      <div className="summary-item">
+        <span className="summary-value">281</span>
+        <span className="summary-label">solved</span>
+      </div>
 
-    return(<div className="statsGrid">
-    <StatCard
-    icon="🔥"
-    title="Current Streak"
-    value="37"
-    subtitle=" days"
-    description="Keep it up!"
-    color="orange"
-/>
+      <span className="summary-dot">·</span>
 
-<StatCard
-    icon="🏆"
-    title="Longest Streak"
-    value="103"
-    subtitle=" days"
-    description="Personal Best"
-    color="purple"
-/>
+      <div className="summary-item">
+        <span className="summary-pill easy">
+          <span className="pill-dot easy" />
+          <span className="summary-value">120</span> Easy
+        </span>
+      </div>
 
-<StatCard
-    icon="📚"
-    title="Solved"
-    value="281"
-    subtitle=" problems"
-    description="Across all topics"
-    color="purple"
-/>
+      <span className="summary-dot">·</span>
 
-<StatCard
-    icon="🟢"
-    title="Easy"
-    value="120"
-    subtitle=""
-    description="Solved"
-    color="lightgreen"
-/>
+      <div className="summary-item">
+        <span className="summary-pill medium">
+          <span className="pill-dot medium" />
+          <span className="summary-value">130</span> Medium
+        </span>
+      </div>
 
-<StatCard
-    icon="🟡"
-    title="Medium"
-    value="130"
-    subtitle=""
-    description="Solved"
-    color="orange"
-/>
+      <span className="summary-dot">·</span>
 
-<StatCard
-    icon="🔴"
-    title="Hard"
-    value="31"
-    subtitle=""
-    description="Solved"
-    color="red"
-/></div>
+      <div className="summary-item">
+        <span className="summary-pill hard">
+          <span className="pill-dot hard" />
+          <span className="summary-value">31</span> Hard
+        </span>
+      </div>
 
-    )
+      <span className="summary-dot">·</span>
 
+      <div className="summary-item">
+        <span className="summary-value">37</span>
+        <span className="summary-label">day streak</span>
+      </div>
+
+      <span className="summary-dot">·</span>
+
+      <div className="summary-item">
+        <span className="summary-value">103</span>
+        <span className="summary-label">best streak</span>
+      </div>
+    </div>
+  );
 }
 
-export default StatsGrid;
+export default StatsGrid;

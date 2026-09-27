@@ -5,9 +5,22 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Track Your</title>
+    <script>
+      (function() {
+        try {
+          var saved = localStorage.getItem('trackyour-theme');
+          if (saved === 'mono') {
+            document.documentElement.dataset.theme = 'mono';
+          } else {
+            document.documentElement.dataset.theme = 'obsidian';
+          }
+        } catch (e) {}
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
+

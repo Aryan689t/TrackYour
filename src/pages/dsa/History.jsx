@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import AppShell from "../../components/layout/AppShell.jsx";
 import PageHeader from "../../components/common/PageHeader.jsx";
-import SearchBar from "./history-components/SearchBar";
-import FilterBar from "./history-components/FilterBar";
-import HistoryTable from "./history-components/HistoryTable";
-import RevisionTip from "./history-components/RevisionTip";
+import SearchBar from "./History-components/SearchBar";
+import FilterBar from "./History-components/FilterBar";
+import HistoryTable from "./History-components/HistoryTable";
+import RevisionTip from "./History-components/RevisionTip";
+
 import "./History.css";
 
 function History() {

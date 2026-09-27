@@ -1,7 +1,49 @@
 .academics-page {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 24px;
+}
+
+.academics-summary-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+@media (max-width: 768px) {
+  .academics-summary-strip {
+    grid-template-columns: 1fr;
+  }
+}
+
+.academic-summary-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.academic-summary-label {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-dark);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.academic-summary-val {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--text-main);
+  letter-spacing: -0.02em;
+}
+
+.academic-summary-sub {
+  font-size: 12px;
+  color: var(--text-muted);
 }
 
 .semester-grid {
@@ -27,11 +69,17 @@
   text-decoration: none;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  min-height: 120px;
-  max-height: 140px;
-  gap: 10px;
-  padding: 16px 18px !important;
+  gap: 12px;
+  padding: 18px !important;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  transition: var(--transition-fast);
+}
+
+.sem-card:hover {
+  border-color: var(--border-hover);
+  background: var(--bg-elevated);
 }
 
 .sem-card-header {
@@ -40,33 +88,37 @@
   justify-content: space-between;
 }
 
-.sem-icon {
-  font-size: 18px;
-}
-
 .sem-card-body h3 {
-  font-size: 17px;
-  font-weight: 700;
+  font-size: 15px;
+  font-weight: 600;
   color: var(--text-main);
   margin-bottom: 2px;
-  font-family: 'Georgia', serif;
 }
 
 .sem-subtext {
   font-size: 12px;
-  color: var(--text-muted);
+  color: var(--text-dark);
+}
+
+.sem-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 10px;
+  border-top: 1px solid var(--border-color);
 }
 
 .sem-card-arrow {
   font-size: 12px;
-  font-weight: 600;
-  color: var(--accent-1);
+  font-weight: 500;
+  color: var(--accent-purple-light);
   display: flex;
   align-items: center;
+  gap: 4px;
   transition: var(--transition-fast);
 }
 
 .sem-card:hover .sem-card-arrow {
-  color: #8b5cf6;
-  transform: translateX(4px);
+  color: #ffffff;
 }
+

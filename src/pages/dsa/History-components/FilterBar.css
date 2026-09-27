@@ -1,26 +1,34 @@
 .filterBar {
-    display: flex;
-    gap: 16px;
-    flex-wrap: wrap;
+  display: flex;
+  align-items: center;
 }
 
-.filterBar select {
-    padding: 12px 18px;
-    background: var(--card-bg);
-    color: var(--text-main);
-    border: 1px solid var(--border-light);
-    border-radius: var(--radius-btn);
-    font-size: 15px;
-    cursor: pointer;
-    transition: 0.3s;
-    outline: none;
+.filter-select {
+  background: var(--bg-surface);
+  color: var(--text-main);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 8px 12px;
+  font-size: 13px;
+  height: 38px;
+  outline: none;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  width: 160px;
 }
 
-.filterBar select:hover {
-    border-color: var(--border-hover);
+.filter-select:hover {
+  border-color: var(--border-hover);
+  background: var(--bg-elevated);
 }
 
-.filterBar select:focus {
-    border-color: var(--accent-2);
-    box-shadow: 0 0 12px var(--accent-glow);
+.filter-select:focus {
+  border-color: var(--accent-purple);
+  box-shadow: 0 0 0 2px var(--accent-purple-subtle);
 }
+
+@media (max-width: 640px) {
+  .filter-select {
+    width: 100%;
+  }
+}

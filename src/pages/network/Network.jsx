@@ -139,10 +139,10 @@ function Network() {
     });
 
   const stats = [
-    { icon: "👥", label: "Total Contacts", value: contacts.length, color: "purple" },
-    { icon: "🧭", label: "Mentors", value: contacts.filter((c) => c.relationship === "Mentor").length, color: "purple" },
-    { icon: "⭐", label: "Seniors", value: contacts.filter((c) => c.relationship === "Senior").length, color: "purple" },
-    { icon: "💼", label: "Recruiters", value: contacts.filter((c) => c.relationship === "Recruiter").length, color: "purple" }
+    { label: "Total Contacts", value: contacts.length, tag: "ALL" },
+    { label: "Mentors", value: contacts.filter((c) => c.relationship === "Mentor").length, tag: "MENTOR" },
+    { label: "Seniors", value: contacts.filter((c) => c.relationship === "Senior").length, tag: "SENIOR" },
+    { label: "Recruiters", value: contacts.filter((c) => c.relationship === "Recruiter").length, tag: "RECRUITER" }
   ];
 
   return (
@@ -163,7 +163,7 @@ function Network() {
           <input
             type="text"
             className="input-standard network-search-input"
-            placeholder="🔍 Search by name, role, company or tag..."
+            placeholder="Search by name, role, company or tag..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
           />
@@ -182,7 +182,14 @@ function Network() {
 
         {filtered.length === 0 ? (
           <EmptyState
-            icon="👥"
+            icon={
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                <circle cx="9" cy="7" r="4" />
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+              </svg>
+            }
             title="No contacts found"
             description="No contacts match your current search and relationship filter."
           />
@@ -201,3 +208,4 @@ function Network() {
 }
 
 export default Network;
+

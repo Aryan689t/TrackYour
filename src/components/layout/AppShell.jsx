@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { HiMiniUser } from 'react-icons/hi2';
 import './AppShell.css';
@@ -8,6 +8,52 @@ function AppShell({ children, containerSize = "wide" }) {
   const path = location.pathname;
 
   const [mobileOpen, setMobileOpen] = useState(false);
+
+  // Theme State Management (trackyour-theme: obsidian | mono)
+  const getInitialTheme = () => {
+    try {
+      const saved = localStorage.getItem('trackyour-theme');
+      if (saved === 'mono' || saved === 'obsidian') return saved;
+    } catch (e) {}
+    return 'obsidian';
+  };
+
+  const [theme, setTheme] = useState(getInitialTheme);
+  const [settingsOpen, setSettingsOpen] = useState(false);
+  const footerRef = useRef(null);
+
+  const handleThemeChange = (newTheme) => {
+    setTheme(newTheme);
+    document.documentElement.dataset.theme = newTheme;
+    try {
+      localStorage.setItem('trackyour-theme', newTheme);
+    } catch (e) {}
+  };
+
+  useEffect(() => {
+    document.documentElement.dataset.theme = theme;
+  }, [theme]);
+
+  // Click outside to close settings popover
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (footerRef.current && !footerRef.current.contains(event.target)) {
+        setSettingsOpen(false);
+      }
+    };
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape') setSettingsOpen(false);
+    };
+
+    if (settingsOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+      document.addEventListener('keydown', handleKeyDown);
+    }
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [settingsOpen]);
 
   // Check active module
   const isDSA = ["/Status", "/History", "/Playlists", "/Roadmap", "/Journal"].includes(path);
@@ -168,17 +214,59 @@ function AppShell({ children, containerSize = "wide" }) {
           )}
         </div>
 
-        {/* Profile / Bottom Area */}
-        <div className="sidebar-footer">
+        {/* Profile / Footer Settings Area */}
+        <div className="sidebar-footer" ref={footerRef}>
           <div className="user-profile">
             <div className="user-avatar">
-              <HiMiniUser size={22} />
+              <HiMiniUser size={20} />
             </div>
             <div className="user-info">
               <span className="user-name">Aryan</span>
               <span className="user-role">Student</span>
             </div>
+
+            <button
+              className="settings-btn"
+              onClick={() => setSettingsOpen(!settingsOpen)}
+              aria-label="Appearance Settings"
+              aria-expanded={settingsOpen}
+            >
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" />
+              </svg>
+            </button>
           </div>
+
+          {/* Settings Popover */}
+          {settingsOpen && (
+            <div className="settings-popover" role="dialog" aria-label="Appearance Settings">
+              <div className="popover-header">
+                <span className="popover-title">Appearance</span>
+              </div>
+              <div className="popover-body">
+                <span className="popover-section-label">THEME</span>
+                <div className="theme-options-grid">
+                  <button
+                    className={`theme-option-btn ${theme === 'obsidian' ? 'active' : ''}`}
+                    onClick={() => handleThemeChange('obsidian')}
+                    aria-pressed={theme === 'obsidian'}
+                  >
+                    <span className="theme-indicator obsidian">◐</span>
+                    <span className="theme-name">Obsidian</span>
+                  </button>
+                  <button
+                    className={`theme-option-btn ${theme === 'mono' ? 'active' : ''}`}
+                    onClick={() => handleThemeChange('mono')}
+                    aria-pressed={theme === 'mono'}
+                  >
+                    <span className="theme-indicator mono">◑</span>
+                    <span className="theme-name">Mono</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       </aside>
 
@@ -193,3 +281,4 @@ function AppShell({ children, containerSize = "wide" }) {
 }
 
 export default AppShell;
+

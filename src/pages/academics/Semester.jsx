@@ -164,7 +164,12 @@ function Semester() {
             <h3 className="section-subtitle">Registered Subjects</h3>
             {subdetail.length === 0 ? (
               <EmptyState
-                icon="📖"
+                icon={
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+                  </svg>
+                }
                 title="No subjects added"
                 description="Use the form above to add subjects and calculate your SGPA for this semester."
               />
@@ -228,11 +233,12 @@ function Semester() {
           <div className="premium-card sgpa-summary-card">
             <span className="sgpa-eyebrow">SEMESTER RESULT</span>
             <div className="sgpa-value-box">
-              <span className="sgpa-number display-serif">
+              <span className="sgpa-number">
                 {calculatedSgpa.toFixed(2)}
               </span>
               <span className="sgpa-scale">/ 10.0</span>
             </div>
+
             <p className="sgpa-desc">
               {calculatedSgpa >= 8.5
                 ? "Outstanding Performance!"

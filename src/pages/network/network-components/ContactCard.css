@@ -1,9 +1,17 @@
 .contactCard {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
   padding: 16px 18px !important;
-  min-height: 200px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  transition: var(--transition-fast);
+}
+
+.contactCard:hover {
+  border-color: var(--border-hover);
+  background: var(--bg-elevated);
 }
 
 .contactCardHead {
@@ -13,16 +21,17 @@
 }
 
 .avatar {
-  width: 44px;
-  height: 44px;
-  border-radius: var(--radius-btn);
-  background: var(--primary-accent);
-  color: #ffffff;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--accent-purple-subtle);
+  color: var(--accent-purple-light);
+  border: 1px solid var(--accent-purple-border);
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 17px;
-  font-weight: 700;
+  font-size: 13px;
+  font-weight: 600;
   flex-shrink: 0;
 }
 
@@ -34,8 +43,8 @@
 .contactHeadInfo h3 {
   margin: 0;
   color: var(--text-main);
-  font-size: 16px;
-  font-weight: 700;
+  font-size: 15px;
+  font-weight: 600;
   line-height: 1.2;
 }
 
@@ -43,7 +52,7 @@
   margin: 2px 0 0;
   color: var(--text-muted);
   font-size: 12px;
-  font-weight: 500;
+  font-weight: 400;
 }
 
 .contactCompany {
@@ -53,14 +62,6 @@
   font-size: 11px;
 }
 
-.relBadge {
-  padding: 3px 8px;
-  border-radius: var(--radius-pill);
-  font-size: 11px;
-  font-weight: 600;
-  white-space: nowrap;
-}
-
 .tagRow {
   display: flex;
   flex-wrap: wrap;
@@ -68,13 +69,12 @@
 }
 
 .contactTag {
-  background: var(--card-bg-2);
-  border: 1px solid var(--border-light);
+  background: var(--bg-dark);
+  border: 1px solid var(--border-color);
   color: var(--text-muted);
-  padding: 3px 8px;
-  border-radius: 6px;
+  padding: 2px 8px;
+  border-radius: var(--radius-pill);
   font-size: 11px;
-  font-weight: 500;
 }
 
 .reminderRow {
@@ -83,62 +83,12 @@
   gap: 6px;
 }
 
-.reminderBadge {
-  padding: 3px 8px;
-  border-radius: 6px;
-  font-size: 11px;
-  font-weight: 600;
-}
-
 .contactActions {
   display: flex;
-  gap: 8px;
-  margin-top: auto;
-  padding-top: 4px;
-}
-
-.actionBtn {
-  flex: 1;
-  text-align: center;
-  text-decoration: none;
-  background: var(--card-bg-2);
-  color: var(--text-muted);
-  border: 1px solid var(--border-light);
-  border-radius: var(--radius-btn);
-  padding: 7px 10px;
-  font-size: 12px;
-  height: 36px;
-  font-weight: 600;
-  font-family: inherit;
-  cursor: pointer;
-  transition: var(--transition-fast);
-  display: inline-flex;
   align-items: center;
-  justify-content: center;
+  gap: 8px;
+  margin-top: 4px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border-color);
 }
 
-.actionBtn:hover {
-  border-color: var(--border-hover);
-  color: var(--text-main);
-}
-
-.actionBtn.primary {
-  background: var(--accent-1);
-  color: #ffffff;
-  border-color: transparent;
-}
-
-.actionBtn.primary:hover {
-  background: #8b5cf6;
-  border-color: transparent;
-}
-
-.actionBtn.ghost {
-  background: transparent;
-}
-
-.actionBtn.ghost:hover {
-  background: rgba(239, 68, 68, 0.1);
-  color: #f87171;
-  border-color: #f87171;
-}
