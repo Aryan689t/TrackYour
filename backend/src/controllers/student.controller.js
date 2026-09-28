@@ -78,7 +78,7 @@ export const login_user = async (req, res) => {
             const token=jsonwebtoken.sign(//create a jwt token 
                 {userId:user.id},//payload
                 process.env.JWT_SECRET,//secret ur server keeps
-                {expiresIn:"60s"}
+                
             );
             console.log("NEW TOKEN DATA:");
 console.log(jsonwebtoken.decode(token));
