@@ -7,12 +7,11 @@ import "./semester.css";
 
 function Semester() {
   const { id } = useParams();
-
   const [subject, setSubject] = useState("");
+  const [subjectType, setSubjectType] = useState("theory");
   const [internal, setInternal] = useState("");
   const [external, setExternal] = useState("");
   const [credits, setCredits] = useState("");
-
   const [subdetail, setSubdetail] = useState([]);
 
   function add() {
@@ -20,21 +19,20 @@ function Semester() {
       alert("Please fill all the fields.");
       return;
     }
-
     if (Number(internal) > 100 || Number(external) > 100) {
       alert("Marks can not be greater then 100");
       return;
     }
-
     const newSub = {
       Subject: subject,
+      Type: subjectType,
       Internal: internal,
       External: external,
       Credits: credits
     };
-
-    setSubdetail((sub) => [...sub, newSub]);
+    setSubdetail(sub => [...sub, newSub]);
     setSubject("");
+    setSubjectType("theory");
     setInternal("");
     setExternal("");
     setCredits("");
@@ -76,9 +74,7 @@ function Semester() {
     if (saved) {
       try {
         setSubdetail(JSON.parse(saved));
-      } catch {
-        // handle parse error silently
-      }
+      } catch {}
     }
   }, [id]);
 
@@ -103,8 +99,6 @@ function Semester() {
             </Link>
           }
         />
-
-        {/* Add Subject Card Form */}
         <div className="premium-card semester-form-card">
           <h3 className="section-subtitle">Add Course Subject</h3>
           <div className="form-grid">
@@ -114,8 +108,19 @@ function Semester() {
                 className="input-standard"
                 placeholder="e.g. Data Structures"
                 value={subject}
-                onChange={(e) => setSubject(e.target.value)}
+                onChange={e => setSubject(e.target.value)}
               />
+            </div>
+            <div className="input-group">
+              <label>Subject Type</label>
+              <select
+                className="input-standard"
+                value={subjectType}
+                onChange={e => setSubjectType(e.target.value)}
+              >
+                <option value="theory">Theory</option>
+                <option value="lab">Lab</option>
+              </select>
             </div>
             <div className="input-group">
               <label>Internal Marks (max 100)</label>
@@ -124,7 +129,7 @@ function Semester() {
                 className="input-standard"
                 placeholder="e.g. 45"
                 value={internal}
-                onChange={(e) => setInternal(e.target.value)}
+                onChange={e => setInternal(e.target.value)}
               />
             </div>
             <div className="input-group">
@@ -134,7 +139,7 @@ function Semester() {
                 className="input-standard"
                 placeholder="e.g. 48"
                 value={external}
-                onChange={(e) => setExternal(e.target.value)}
+                onChange={e => setExternal(e.target.value)}
               />
             </div>
             <div className="input-group">
@@ -144,7 +149,7 @@ function Semester() {
                 className="input-standard"
                 placeholder="e.g. 4"
                 value={credits}
-                onChange={(e) => setCredits(e.target.value)}
+                onChange={e => setCredits(e.target.value)}
               />
             </div>
           </div>
@@ -157,8 +162,6 @@ function Semester() {
             </button>
           </div>
         </div>
-
-        {/* Subjects Table & SGPA Row */}
         <div className="semester-results-grid">
           <div className="premium-card table-section">
             <h3 className="section-subtitle">Registered Subjects</h3>
@@ -167,7 +170,7 @@ function Semester() {
                 icon={
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
-                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 6.5 2z" />
                   </svg>
                 }
                 title="No subjects added"
@@ -200,24 +203,19 @@ function Semester() {
                           <td>{sub.Credits}</td>
                           <td>{total}</td>
                           <td>
-                            <span
-                              className={`badge ${
-                                gradeInfo.gradePoint >= 8
-                                  ? "badge-success"
-                                  : gradeInfo.gradePoint >= 6
-                                  ? "badge-info"
-                                  : "badge-warning"
-                              }`}
-                            >
+                            <span className={`badge ${
+                              gradeInfo.gradePoint >= 8
+                                ? "badge-success"
+                                : gradeInfo.gradePoint >= 6
+                                ? "badge-info"
+                                : "badge-warning"
+                            }`}>
                               {gradeInfo.grade}
                             </span>
                           </td>
                           <td>{gradeInfo.gradePoint}</td>
                           <td style={{ textAlign: "right" }}>
-                            <button
-                              className="btn-danger"
-                              onClick={() => deleteSub(index)}
-                            >
+                            <button className="btn-danger" onClick={() => deleteSub(index)}>
                               Delete
                             </button>
                           </td>
@@ -229,16 +227,12 @@ function Semester() {
               </div>
             )}
           </div>
-
           <div className="premium-card sgpa-summary-card">
             <span className="sgpa-eyebrow">SEMESTER RESULT</span>
             <div className="sgpa-value-box">
-              <span className="sgpa-number">
-                {calculatedSgpa.toFixed(2)}
-              </span>
+              <span className="sgpa-number">{calculatedSgpa.toFixed(2)}</span>
               <span className="sgpa-scale">/ 10.0</span>
             </div>
-
             <p className="sgpa-desc">
               {calculatedSgpa >= 8.5
                 ? "Outstanding Performance!"
