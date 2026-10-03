@@ -54,3 +54,91 @@ export const getSemester = async (req, res) => {
         });
     }
 };
+
+
+
+export const createSubjects = async (req, res) => {
+    try {
+        const semesterId = req.params.semesterId;
+        const userId = req.user.userId;
+        const { subjects } = req.body;
+
+        // Check whether this semester belongs to the logged-in user
+        const semester = await pool.query(
+            `SELECT id
+             FROM semesters
+             WHERE id = $1 AND user_id = $2`,
+            [semesterId, userId]
+        );
+
+        if (semester.rows.length === 0) {
+            return res.status(403).json({
+                error: "You do not have access to this semester"
+            });
+        }
+await pool.query("BEGIN");
+        for (const subject of subjects) {
+            await pool.query(
+                `INSERT INTO subjects
+                (semester_id, subject_name, subject_type, internal_marks, external_marks, credits)
+                VALUES ($1, $2, $3, $4, $5, $6)`,
+                [
+                    semesterId,
+                    subject.subject_name,
+                    subject.subject_type.toUpperCase(),
+                    subject.internal_marks,
+                    subject.external_marks,
+                    subject.credits
+                ]
+            );
+        }
+await pool.query("COMMIT");
+        res.status(201).json({
+            message: "Subjects created successfully"
+        });
+
+    } catch (error) {
+        await pool.query("ROLLBACK");
+        console.error(error.message);
+        res.status(500).json({ error: "Database error" });
+    }
+};
+
+
+
+
+export const getSubjects = async (req, res) => {
+    try {
+        const semesterId = req.params.semesterId;
+        const userId = req.user.userId;
+
+        const semester = await pool.query(
+            `SELECT id
+             FROM semesters
+             WHERE id = $1 AND user_id = $2`,
+            [semesterId, userId]
+        );
+
+        if (semester.rows.length === 0) {
+            return res.status(403).json({
+                error: "You do not have access to this semester"
+            });
+        }
+
+        const result = await pool.query(
+            `SELECT *
+             FROM subjects
+             WHERE semester_id = $1
+             ORDER BY id`,
+            [semesterId]
+        );
+
+        res.status(200).json(result.rows);
+
+    } catch (error) {
+        console.error(error.message);
+        res.status(500).json({
+            error: "Database error"
+        });
+    }
+};

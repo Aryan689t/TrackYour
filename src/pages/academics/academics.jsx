@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React, { useEffect, useMemo, useState} from "react";
 import { Link } from "react-router-dom";
 import AppShell from "../../components/layout/AppShell.jsx";
 import PageHeader from "../../components/common/PageHeader.jsx";
@@ -6,6 +6,58 @@ import "./Academics.css";
 
 function Academics() {
   const semesters = [1, 2, 3, 4, 5, 6, 7, 8];
+  const [semesterData, setSemesterData] = useState({});
+
+  useEffect(() => {
+    const fetchSemesters = async () => {
+        try {
+            const token = localStorage.getItem("token");
+
+            const data = {};
+
+            for (const num of semesters) {
+                const semesterResponse = await fetch(
+                    `/api/academics/semesters/${num}`,
+                    {
+                        headers: {
+                            Authorization: `Bearer ${token}`
+                        }
+                    }
+                );
+
+                if (!semesterResponse.ok) {
+                    continue;
+                }
+
+                const semester = await semesterResponse.json();
+
+                const subjectsResponse = await fetch(
+                    `/api/academics/semesters/${semester.id}/subjects`,
+                    {
+                        headers: {
+                            Authorization: `Bearer ${token}`
+                        }
+                    }
+                );
+
+                if (!subjectsResponse.ok) {
+                    continue;
+                }
+
+                const subjects = await subjectsResponse.json();
+
+                data[num] = subjects;
+            }
+
+            setSemesterData(data);
+
+             } catch (error) {
+                  console.error("ACADEMICS FETCH ERROR:", error);
+                }
+           };
+
+            fetchSemesters();
+         }, []);
 
   const academicSummary = useMemo(() => {
     let configuredCount = 0;

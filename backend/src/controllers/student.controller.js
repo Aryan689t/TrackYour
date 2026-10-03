@@ -6,11 +6,15 @@ export const getStudents = async (req, res) => {
     console.log("Logged-in user:", req.user);
     try {
         const result = await pool.query(
-    "SELECT id, name, email FROM students WHERE id = $1",
-    [req.user.userId]
-);
+            "SELECT id, name, email FROM students WHERE id = $1",
+            [req.user.userId]
+        );
 
-        res.json(result.rows);
+        if (result.rows.length === 0) {
+            return res.status(404).json({ error: "User not found" });
+        }
+
+        res.json(result.rows[0]);
     } catch (error) {
         console.error(error.message);
         res.status(500).json({ error: "Database error" });

@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import AppShell from './components/layout/AppShell.jsx';
 import PageHeader from './components/common/PageHeader.jsx';
@@ -6,6 +6,28 @@ import EmptyState from './components/common/EmptyState.jsx';
 import './App.css';
 
 function App() {
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (!token) return;
+
+    fetch("/api/students", {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    })
+      .then((res) => {
+        if (res.ok) return res.json();
+        throw new Error("Failed to fetch user");
+      })
+      .then((data) => {
+        setUser(data);
+      })
+      .catch((err) => {
+        console.error("Failed to load user profile in Dashboard:", err);
+      });
+  }, []);
   // Read real academic data from localStorage if configured
   const academicStats = useMemo(() => {
     let configuredSemesters = 0;
@@ -60,7 +82,7 @@ function App() {
       <div className="dashboard-root">
         <PageHeader
           eyebrow="Overview"
-          title="Good evening, Aryan"
+          title={`Good evening, ${user?.name || "Student"}`}
           description="Here's a summary of your academic progress, algorithm practice, and active projects."
           action={
             <span className="badge badge-success">

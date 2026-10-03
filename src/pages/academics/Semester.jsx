@@ -15,6 +15,8 @@ function Semester() {
   const [external, setExternal] = useState("");
   const [credits, setCredits] = useState("");
   const [subdetail, setSubdetail] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   function add() {
     if (subject === "" || internal === "" || external === "" || credits === "") {
@@ -66,24 +68,107 @@ function Semester() {
     return sumcred === 0 ? 0 : sum / sumcred;
   }
 
-  function save() {
-    localStorage.setItem("semester" + id, JSON.stringify(subdetail));
-    alert("Semester data saved successfully!");
-  }
+ async function save() {
+    try {
+        const token = localStorage.getItem("token");
+
+        const semesterResponse = await fetch(
+            `/api/academics/semesters/${id}`,
+            {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            }
+        );
+
+        const semester = await semesterResponse.json();
+
+        console.log("SEMESTER FROM BACKEND:", semester);
+
+       } catch (error) {
+        console.error("SAVE ERROR:", error);
+       }
+    }
 
   useEffect(() => {
-    const saved = localStorage.getItem("semester" + id);
-    if (saved) {
+    let isMounted = true;
+    setIsLoading(true);
+    setError(null);
+
+    const fetchSemesterAndSubjects = async () => {
       try {
-        setSubdetail(JSON.parse(saved));
-      } catch {}
-    }
+        const token = localStorage.getItem("token");
+        if (!token) {
+          setIsLoading(false);
+          return;
+        }
+
+        // 1. Fetch database semester for the given semester number
+        const semesterResponse = await fetch(`/api/academics/semesters/${id}`, {
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        });
+
+        if (semesterResponse.status === 404) {
+          if (isMounted) {
+            setSubdetail([]);
+            setIsLoading(false);
+          }
+          return;
+        }
+
+        if (!semesterResponse.ok) {
+          throw new Error("Failed to fetch semester details");
+        }
+
+        const semester = await semesterResponse.json();
+
+        // 2. Fetch subjects using the returned semester id
+        const subjectsResponse = await fetch(`/api/academics/semesters/${semester.id}/subjects`, {
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        });
+
+        if (!subjectsResponse.ok) {
+          throw new Error("Failed to fetch subjects");
+        }
+
+        const subjectsData = await subjectsResponse.json();
+
+        if (isMounted) {
+          // 3. Map backend fields to the Semester UI data format
+          const mappedSubjects = subjectsData.map((s) => ({
+            id: s.id,
+            Subject: s.subject_name,
+            Type: s.subject_type ? s.subject_type.toLowerCase() : "theory",
+            Internal: s.internal_marks,
+            External: s.external_marks,
+            Credits: s.credits
+          }));
+          setSubdetail(mappedSubjects);
+          setIsLoading(false);
+        }
+      } catch (err) {
+        console.error("Error fetching semester data:", err);
+        if (isMounted) {
+          setError(err.message || "Failed to load subjects");
+          setIsLoading(false);
+        }
+      }
+    };
+
+    fetchSemesterAndSubjects();
+
+    return () => {
+      isMounted = false;
+    };
   }, [id]);
 
   function deleteSub(index) {
     const updated = subdetail.filter((_, i) => i !== index);
     setSubdetail(updated);
-    localStorage.setItem("semester" + id, JSON.stringify(updated));
   }
 
   const calculatedSgpa = calSgpa();
@@ -167,7 +252,15 @@ function Semester() {
         <div className="semester-results-grid">
           <div className="premium-card table-section">
             <h3 className="section-subtitle">Registered Subjects</h3>
-            {subdetail.length === 0 ? (
+            {isLoading ? (
+              <div style={{ padding: "36px 16px", textAlign: "center", color: "var(--text-dark)", fontSize: 14 }}>
+                Loading semester subjects...
+              </div>
+            ) : error ? (
+              <div style={{ padding: "24px 16px", textAlign: "center", color: "var(--danger)", fontSize: 14 }}>
+                {error}
+              </div>
+            ) : subdetail.length === 0 ? (
               <EmptyState
                 icon={
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">

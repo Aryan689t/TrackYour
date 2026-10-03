@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import './Login.css';
 
 function Login({ initialMode = 'login' }) {
   const location = useLocation();
+  const navigate = useNavigate();
 
   // Mode: 'login' | 'register'
   const isRegisterParam = location.pathname.toLowerCase().includes('register') || initialMode === 'register';
@@ -168,33 +169,71 @@ function Login({ initialMode = 'login' }) {
   };
 
   // Submit Handler (Pure Frontend Demo)
-  const handleSubmit = async(e) => {
+ const handleSubmit = async (e) => {
     e.preventDefault();
+
     console.log("HANDLE SUBMIT HIT");
+
     setStatusMessage(null);
 
     const isValid = validateAll();
+
     if (!isValid) return;
 
+    // For now, only connect the Login mode
+    if (mode !== "login") {
+        setStatusMessage({
+            type: "info",
+            text: "Registration will be connected next."
+        });
+        return;
+    }
+
     setIsLoading(true);
+
     try {
-    const response = await fetch("/api/students/login", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            email: formData.identifier,
-            password: formData.password
-        })
-    });
+        const response = await fetch("/api/students/login", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                email: formData.identifier,
+                password: formData.password
+            })
+        });
 
-    const data = await response.json();
+        const data = await response.json();
 
-    localStorage.setItem("token", data.token);
-} catch (error) {
-    console.error("LOGIN ERROR:", error);
-}};
+        console.log("LOGIN RESPONSE:", data);
+
+        if (!response.ok) {
+            setStatusMessage({
+                type: "error",
+                text: data.error || "Login failed."
+            });
+            return;
+        }
+
+        localStorage.setItem("token", data.token);
+
+        setStatusMessage({
+            type: "success",
+            text: "Login successful!"
+        });
+navigate("/");
+    } catch (error) {
+        console.error("LOGIN ERROR:", error);
+
+        setStatusMessage({
+            type: "error",
+            text: "Unable to connect to the server."
+        });
+
+    } finally {
+        setIsLoading(false);
+    }
+};
    
   // Quick Demo Auto-fill Helper
   const handleFillDemo = () => {

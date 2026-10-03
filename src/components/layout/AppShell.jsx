@@ -20,7 +20,29 @@ function AppShell({ children, containerSize = "wide" }) {
 
   const [theme, setTheme] = useState(getInitialTheme);
   const [settingsOpen, setSettingsOpen] = useState(false);
+  const [user, setUser] = useState(null);
   const footerRef = useRef(null);
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (!token) return;
+
+    fetch("/api/students", {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    })
+      .then((res) => {
+        if (res.ok) return res.json();
+        throw new Error("Failed to fetch user");
+      })
+      .then((data) => {
+        setUser(data);
+      })
+      .catch((err) => {
+        console.error("Failed to load user profile in AppShell:", err);
+      });
+  }, []);
 
   const handleThemeChange = (newTheme) => {
     setTheme(newTheme);
@@ -221,7 +243,7 @@ function AppShell({ children, containerSize = "wide" }) {
               <HiMiniUser size={20} />
             </div>
             <div className="user-info">
-              <span className="user-name">Aryan</span>
+              <span className="user-name">{user?.name || "Student"}</span>
               <span className="user-role">Student</span>
             </div>
 
