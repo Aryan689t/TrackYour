@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+//useState in React is used to store data that can change over time inside a component.
+//useEffect lets you run some code after React renders the component    It's mainly for side effects like API calls, subscriptions, timers, event listeners, syncing with external systems, etc.
 import { Link, useParams } from "react-router-dom";
 import AppShell from "../../components/layout/AppShell.jsx";
 import PageHeader from "../../components/common/PageHeader.jsx";
@@ -7,7 +9,7 @@ import "./semester.css";
 
 function Semester() {
   const { id } = useParams();
-  const [subject, setSubject] = useState("");
+  const [subject, setSubject] = useState("");//subject - current value   setSubject - fxn used to change the value     ' '-initial value
   const [subjectType, setSubjectType] = useState("theory");
   const [internal, setInternal] = useState("");
   const [external, setExternal] = useState("");
@@ -30,7 +32,7 @@ function Semester() {
       External: external,
       Credits: credits
     };
-    setSubdetail(sub => [...sub, newSub]);
+    setSubdetail(sub => [...sub, newSub]);//The ... is the spread operator. It takes everything from the old array and puts it into a new array.
     setSubject("");
     setSubjectType("theory");
     setInternal("");

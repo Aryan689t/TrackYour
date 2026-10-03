@@ -264,6 +264,16 @@ function AppShell({ children, containerSize = "wide" }) {
                     <span className="theme-name">Mono</span>
                   </button>
                 </div>
+                <div style={{ marginTop: 8, paddingTop: 8, borderTop: '1px solid var(--border-color)' }}>
+                  <Link
+                    to="/login"
+                    className="nav-item"
+                    style={{ padding: '6px 8px', fontSize: 12, justifyContent: 'center', color: 'var(--accent-purple-light)' }}
+                    onClick={() => setSettingsOpen(false)}
+                  >
+                    Switch Account / Sign In →
+                  </Link>
+                </div>
               </div>
             </div>
           )}

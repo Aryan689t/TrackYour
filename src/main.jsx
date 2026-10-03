@@ -12,6 +12,7 @@ import History from "./pages/dsa/History.jsx";
 import Playlists from "./pages/dsa/Playlists.jsx";
 import Roadmap from "./pages/dsa/Roadmap.jsx";
 import Journal from "./pages/dsa/Journal.jsx";
+import Login from "./pages/auth/Login.jsx";
 
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
@@ -20,6 +21,14 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <App />
+  },
+  {
+    path: "/login",
+    element: <Login />
+  },
+  {
+    path: "/register",
+    element: <Login initialMode="register" />
   },
   {
     path: "/academics",
