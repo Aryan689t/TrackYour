@@ -106,11 +106,14 @@ await pool.query("COMMIT");
 
 
 
-
 export const getSubjects = async (req, res) => {
     try {
         const semesterId = req.params.semesterId;
         const userId = req.user.userId;
+
+        console.log("GET SUBJECTS");
+        console.log("semesterId:", semesterId);
+        console.log("userId:", userId);
 
         const semester = await pool.query(
             `SELECT id
@@ -118,6 +121,8 @@ export const getSubjects = async (req, res) => {
              WHERE id = $1 AND user_id = $2`,
             [semesterId, userId]
         );
+
+        console.log("SEMESTER CHECK:", semester.rows);
 
         if (semester.rows.length === 0) {
             return res.status(403).json({
@@ -133,10 +138,12 @@ export const getSubjects = async (req, res) => {
             [semesterId]
         );
 
+        console.log("SUBJECTS FROM DB:", result.rows);
+
         res.status(200).json(result.rows);
 
     } catch (error) {
-        console.error(error.message);
+        console.error("GET SUBJECTS ERROR:", error);
         res.status(500).json({
             error: "Database error"
         });
