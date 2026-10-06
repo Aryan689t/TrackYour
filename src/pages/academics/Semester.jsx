@@ -87,6 +87,7 @@ function Semester() {
 
         // Step 2: Prepare subjects
         const subjects = subdetail.map((sub) => ({
+          id: sub.id,
             subject_name: sub.Subject,
             subject_type: sub.Type,
             internal_marks: Number(sub.Internal),
@@ -121,16 +122,41 @@ function Semester() {
       const token = localStorage.getItem("token");
 
       // Get the actual semester from backend
-      const semesterResponse = await fetch(
-        `/api/academics/semesters/${id}`,
-        {
-          headers: {
+        const semesterResponse = await fetch(
+    `/api/academics/semesters/${id}`,
+    {
+        headers: {
             Authorization: `Bearer ${token}`
-          }
         }
-      );
+    }
+);
 
-      const semester = await semesterResponse.json();
+let semester;
+
+if (semesterResponse.ok) {
+
+    // Semester already exists
+    semester = await semesterResponse.json();
+
+} else {
+
+    // Semester doesn't exist, so create it
+    const createResponse = await fetch(
+        "/api/academics/semesters",
+        {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token}`
+            },
+            body: JSON.stringify({
+                semester_number: Number(id)
+            })
+        }
+    );
+
+        semester = await createResponse.json();
+    }
 
       // Get subjects belonging to this semester
       const subjectsResponse = await fetch(
@@ -167,7 +193,7 @@ function Semester() {
   function deleteSub(index) {
     const updated = subdetail.filter((_, i) => i !== index);
     setSubdetail(updated);
-    localStorage.setItem("semester" + id, JSON.stringify(updated));
+    
   }
 
   const calculatedSgpa = calSgpa();

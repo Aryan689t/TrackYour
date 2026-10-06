@@ -63,7 +63,7 @@ export const createSubjects = async (req, res) => {
         const userId = req.user.userId;
         const { subjects } = req.body;
 
-        // Check whether this semester belongs to the logged-in user
+        // 1. Check that this semester belongs to the logged-in user
         const semester = await pool.query(
             `SELECT id
              FROM semesters
@@ -76,31 +76,103 @@ export const createSubjects = async (req, res) => {
                 error: "You do not have access to this semester"
             });
         }
-await pool.query("BEGIN");
+
+        await pool.query("BEGIN");
+
+        // Keep track of ALL subjects that should remain in the database
+        const subjectIds = [];
+
+        // 2. Update existing subjects / insert new subjects
         for (const subject of subjects) {
+
+            if (subject.id) {
+
+                // Existing subject → update it
+                await pool.query(
+                    `UPDATE subjects
+                     SET subject_name = $1,
+                         subject_type = $2,
+                         internal_marks = $3,
+                         external_marks = $4,
+                         credits = $5
+                     WHERE id = $6
+                     AND semester_id = $7`,
+                    [
+                        subject.subject_name,
+                        subject.subject_type.toUpperCase(),
+                        subject.internal_marks,
+                        subject.external_marks,
+                        subject.credits,
+                        subject.id,
+                        semesterId
+                    ]
+                );
+
+                // Keep this subject
+                subjectIds.push(subject.id);
+
+            } else {
+
+                // New subject → insert it
+                const result = await pool.query(
+                    `INSERT INTO subjects
+                     (semester_id, subject_name, subject_type,
+                      internal_marks, external_marks, credits)
+                     VALUES ($1, $2, $3, $4, $5, $6)
+                     RETURNING id`,
+                    [
+                        semesterId,
+                        subject.subject_name,
+                        subject.subject_type.toUpperCase(),
+                        subject.internal_marks,
+                        subject.external_marks,
+                        subject.credits
+                    ]
+                );
+
+                // IMPORTANT:
+                // Save the newly generated database ID
+                subjectIds.push(result.rows[0].id);
+            }
+        }
+
+        console.log("SUBJECT IDS TO KEEP:", subjectIds);
+
+        // 3. Delete subjects that were removed from the frontend
+        if (subjectIds.length > 0) {
+
             await pool.query(
-                `INSERT INTO subjects
-                (semester_id, subject_name, subject_type, internal_marks, external_marks, credits)
-                VALUES ($1, $2, $3, $4, $5, $6)`,
-                [
-                    semesterId,
-                    subject.subject_name,
-                    subject.subject_type.toUpperCase(),
-                    subject.internal_marks,
-                    subject.external_marks,
-                    subject.credits
-                ]
+                `DELETE FROM subjects
+                 WHERE semester_id = $1
+                 AND id <> ALL($2::int[])`,
+                [semesterId, subjectIds]
+            );
+
+        } else {
+
+            // No subjects left → delete all subjects for this semester
+            await pool.query(
+                `DELETE FROM subjects
+                 WHERE semester_id = $1`,
+                [semesterId]
             );
         }
-await pool.query("COMMIT");
+
+        await pool.query("COMMIT");
+
         res.status(201).json({
-            message: "Subjects created successfully"
+            message: "Subjects saved successfully"
         });
 
     } catch (error) {
+
         await pool.query("ROLLBACK");
+
         console.error(error.message);
-        res.status(500).json({ error: "Database error" });
+
+        res.status(500).json({
+            error: "Database error"
+        });
     }
 };
 

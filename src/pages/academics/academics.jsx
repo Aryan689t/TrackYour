@@ -59,66 +59,72 @@ function Academics() {
             fetchSemesters();
          }, []);
 
-  const academicSummary = useMemo(() => {
+ const academicSummary = useMemo(() => {
     let configuredCount = 0;
     let totalSubjectsCount = 0;
     let sgpaSum = 0;
 
     semesters.forEach((num) => {
-      try {
-        const data = localStorage.getItem("semester" + num);
-        if (data) {
-          const parsed = JSON.parse(data);
-          if (Array.isArray(parsed) && parsed.length > 0) {
+        const subjects = semesterData[num];
+
+        if (Array.isArray(subjects) && subjects.length > 0) {
             configuredCount++;
-            totalSubjectsCount += parsed.length;
+            totalSubjectsCount += subjects.length;
 
-            let sum = 0;
-            let credSum = 0;
-            parsed.forEach((sub) => {
-              const tot = Number(sub.Internal || 0) + Number(sub.External || 0);
-              let gp = 0;
-              if (tot >= 90) gp = 10;
-              else if (tot >= 80) gp = 9;
-              else if (tot >= 70) gp = 8;
-              else if (tot >= 60) gp = 7;
-              else if (tot >= 50) gp = 6;
-              else if (tot >= 40) gp = 5;
+            let gradePointSum = 0;
+            let creditSum = 0;
 
-              sum += gp * Number(sub.Credits || 0);
-              credSum += Number(sub.Credits || 0);
+            subjects.forEach((sub) => {
+                const total =
+                    Number(sub.internal_marks || 0) +
+                    Number(sub.external_marks || 0);
+
+                let gp = 0;
+
+                if (total >= 90) gp = 10;
+                else if (total >= 80) gp = 9;
+                else if (total >= 70) gp = 8;
+                else if (total >= 60) gp = 7;
+                else if (total >= 50) gp = 6;
+                else if (total >= 40) gp = 5;
+
+                gradePointSum += gp * Number(sub.credits || 0);
+                creditSum += Number(sub.credits || 0);
             });
-            if (credSum > 0) {
-              sgpaSum += sum / credSum;
+
+            if (creditSum > 0) {
+                sgpaSum += gradePointSum / creditSum;
             }
-          }
         }
-      } catch {
-        // ignore errors
-      }
     });
 
-    const calculatedCgpa = configuredCount > 0 ? (sgpaSum / configuredCount).toFixed(2) : "N/A";
-    return { configuredCount, totalSubjectsCount, calculatedCgpa };
-  }, []);
+    const calculatedCgpa =
+        configuredCount > 0
+            ? (sgpaSum / configuredCount).toFixed(2)
+            : "N/A";
 
-  const getSemesterDetails = (num) => {
-    try {
-      const data = localStorage.getItem("semester" + num);
-      if (data) {
-        const parsed = JSON.parse(data);
-        if (Array.isArray(parsed) && parsed.length > 0) {
-          return {
-            label: `${parsed.length} Subject${parsed.length > 1 ? "s" : ""}`,
+    return {
+        configuredCount,
+        totalSubjectsCount,
+        calculatedCgpa
+    };
+}, [semesterData]);
+
+const getSemesterDetails = (num) => {
+    const subjects = semesterData[num];
+
+    if (Array.isArray(subjects) && subjects.length > 0) {
+        return {
+            label: `${subjects.length} Subject${subjects.length > 1 ? "s" : ""}`,
             isConfigured: true
-          };
-        }
-      }
-    } catch {
-      // ignore
+        };
     }
-    return { label: "Not Configured", isConfigured: false };
-  };
+
+    return {
+        label: "Not Configured",
+        isConfigured: false
+    };
+};
 
   return (
     <AppShell containerSize="wide">
